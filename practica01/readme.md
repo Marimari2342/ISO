@@ -21,4 +21,18 @@ Un SO es un programa que actua como intermediario entre el usuario y el hardware
 
 El GNU/Linux es un SO tipo Unix (Unix like), pero libre, el mismo esta diseñado por miles de programadores, es gratuito y de libre distribucion (se puede bajar desde la Web, CD, etc), tiene diversas distribuciones (customizaciones) y es de codigo abierto, es decir, que podemos ver como esta hecho. Esto nos permite estudiarlo, personalizarlo, auditarlo, etc.
 
+(a) Características más relevantes de GNU/Linux:
+
+* Código Abierto y Libre: GNU/Linux es un sistema operativo de código abierto, lo que significa que su código fuente está disponible públicamente para que cualquiera pueda verlo, modificarlo y distribuirlo. La ventaja de esto es que permite la personalización y adaptación del sistema a necesidades específicas, promueve la transparencia en el desarrollo del software y favorece la colaboración comunitaria.
+
+* Multitarea: lo que permite ejecutar múltiples procesos al mismo tiempo. Esto mejora el rendimiento y la capacidad de respuesta del sistema, permitiendo a los usuarios realizar múltiples tareas simultáneamente sin interferir entre sí.
+
+* Multiplataforma: GNU/Linux puede funcionar en una amplia variedad de hardware. Su capacidad para escalar desde sistemas pequeños a grandes lo hace adecuado para diferentes entornos, desde escritorios personales hasta centros de datos.
+
+* Seguridad y Permisos: GNU/Linux implementa un robusto sistema de permisos y control de acceso que incluye características como el control de acceso basado en roles (RBAC) y capacidades avanzadas de gestión de usuarios. Esto mejora la seguridad al limitar el acceso a archivos y recursos del sistema. Las políticas de permisos estrictas ayudan a proteger el sistema contra accesos no autorizados y malware.
+
+* Comunidad Activa y Soporte: GNU/Linux cuenta con una amplia comunidad de desarrolladores y usuarios que contribuyen al desarrollo del sistema y ofrecen soporte a través de foros, listas de correo y documentación. Proporciona acceso a una vasta cantidad de recursos y asistencia, lo que facilita la resolución de problemas y la obtención de soporte técnico.
+
+* Compatibilidad y Software: GNU/Linux ofrece compatibilidad con una amplia gama de software, desde aplicaciones de línea de comandos hasta entornos de escritorio completos. Además, es compatible con muchos estándares abiertos y protocolos. Esto facilita la integración con diferentes herramientas y aplicaciones, y permite a los usuarios ejecutar una variedad de software en el sistema operativo.
+
 </details>
