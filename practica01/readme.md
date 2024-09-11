@@ -17,7 +17,7 @@ puntos mencionados en el inciso a.
 
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
 
-Un SO es un programa que actua como intermediario entre el usuario y el hardware y es parte esencial de cualquier sistema de computo. El proposito de los SO es crear un entorno comodo y eficiente para la ejecucion de programas, garantizando el correcto funcionamiento del sistema. Las principales funciones de todo SO son: administrar la memoria, administrar la CPU y administrar los dispositivos.
+Un SO es un programa que actua como intermediario entre el usuario y el hardware y es parte esencial de cualquier sistema de computo. El proposito del SO es crear un entorno comodo y eficiente para la ejecucion de programas, garantizando el correcto funcionamiento del sistema. Las principales funciones de todo SO son: administrar la memoria, administrar la CPU y administrar los dispositivos.
 
 El GNU/Linux es un SO tipo Unix (Unix like), pero libre, el mismo esta diseñado por miles de programadores, es gratuito y de libre distribucion (se puede bajar desde la Web, CD, etc), tiene diversas distribuciones (customizaciones) y es de codigo abierto, es decir, que podemos ver como esta hecho. Esto nos permite estudiarlo, personalizarlo, auditarlo, etc.
 
