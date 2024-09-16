@@ -35,7 +35,7 @@ El GNU/Linux es un SO tipo Unix (Unix like), pero libre, el mismo esta diseñado
 
 * Compatibilidad y Software: GNU/Linux ofrece compatibilidad con una amplia gama de software, desde aplicaciones de línea de comandos hasta entornos de escritorio completos. Además, es compatible con muchos estándares abiertos y protocolos. Esto facilita la integración con diferentes herramientas y aplicaciones, y permite a los usuarios ejecutar una variedad de software en el sistema operativo.
 
-(c) GNU es un acrónimo recursivo que significa "GNU's Not Unix" (**GNU** **N**o es **U**nix). Es un proyecto de software libre iniciado por Richard Stallman en 1983 con el objetivo de desarrollar un sistema operativo completo y libre que sea compatible con Unix.
+(c) **GNU** es un acrónimo recursivo que significa "GNU's Not Unix" (**GNU** **N**o es **U**nix). Es un proyecto de software libre iniciado por Richard Stallman en 1983 con el objetivo de desarrollar un sistema operativo completo y libre que sea compatible con Unix.
 
 GNU se refiere a 4 libertades principales de los usuarios del software:
 
@@ -51,6 +51,18 @@ GNU se refiere a 4 libertades principales de los usuarios del software:
 
 GNU/Linux utiliza multitarea preventiva para gestionar la ejecución de procesos, asegurando una asignación justa y eficiente del tiempo de CPU. Esta capacidad permite que GNU/Linux maneje múltiples aplicaciones y tareas al mismo tiempo, mejorando el rendimiento y la capacidad de respuesta del sistema.
 
-(f) POSIX (Portable Operating System Interface) es un conjunto de estándares definidos para mantener la compatibilidad y portabilidad entre sistemas operativos. Estos estándares están diseñados para permitir que el software escrito para un sistema POSIX pueda ser ejecutado en otros sistemas POSIX sin modificaciones significativas.
+(f) **POSIX** (Portable Operating System Interface) es un conjunto de estándares definidos para mantener la compatibilidad y portabilidad entre sistemas operativos. Estos estándares están diseñados para permitir que el software escrito para un sistema POSIX pueda ser ejecutado en otros sistemas POSIX sin modificaciones significativas.
+
+</details>
+
+## 🔵 2. Distribuciones de GNU/Linux:
+
+(a)¿Qué es una distribución de GNU/Linux? Nombre al menos 4 distribuciones de GNU / Linux y cite diferencias básicas entre ellas.
+
+(b) ¿En qué se diferencia una distribución de otra?
+
+(c) ¿Qué es Debian? Acceda al [sitio](https://www.debian.org/intro/about) e indique cuáles son los objetivos del proyecto y una breve cronología del mismo.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
 
 </details>
