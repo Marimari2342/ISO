@@ -136,6 +136,7 @@ Universalidad: Ser una distribución universal que pueda funcionar en una varied
 ## 🔵 3. Estructura de GNU/Linux:
 
 (a) Nombre cuales son los 3 componentes fundamentales de GNU/Linux.
+
 (b) Mencione y explique la estructura básica del Sistema Operativo GNU/Linux.
 
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
@@ -187,5 +188,23 @@ Ubicación: Capa de servicios del sistema.
 Funciones: Ejecutan tareas en segundo plano para proporcionar funcionalidades adicionales, como servicios de red, gestión de impresión, y otras tareas administrativas. Ejemplos incluyen cron, sshd (para conexiones SSH) y apache2 (para servidores web).
 
 Esta estructura modular y jerárquica permite que GNU/Linux sea flexible personalizable y robusto para una amplia variedad de usos, desde servidores hasta sistemas de escritorio.
+
+</details>
+
+## 🔵 4. Kernel:
+
+(a) ¿Qué es? Indique una breve reseña histórica acerca de la evolución del Kernel de GNU/Linux.
+
+(b) ¿Cuáles son sus funciones principales?
+
+(c) ¿Cuál es la versión actual? ¿Cómo se definía el esquema de versionado del Kernel en versiones anteriores a la 2.4? ¿Qué cambió en el versionado se impuso a partir de la versión 2.6?
+
+(d) ¿Es posible tener más de un Kernel de GNU/Linux instalado en la misma máquina?
+
+(e) ¿Dónde se encuentra ubicado dentro del File System?
+
+(f) ¿El Kernel de GNU/Linux es monolítico? Justifique.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
 
 </details>
