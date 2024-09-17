@@ -132,3 +132,58 @@ Software libre: Promover el uso del software libre y mantener un compromiso con 
 Universalidad: Ser una distribución universal que pueda funcionar en una variedad de arquitecturas y entornos.
 
 </details>
+
+## 🔵 3. Estructura de GNU/Linux:
+
+(a) Nombre cuales son los 3 componentes fundamentales de GNU/Linux.
+(b) Mencione y explique la estructura básica del Sistema Operativo GNU/Linux.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+**(a)** Los tres componentes fundamentales de GNU/Linux son:
+
+* Núcleo (Kernel): el núcleo de Linux es el componente central del sistema operativo. Es responsable de gestionar los recursos del hardware, como la CPU, la memoria, y los dispositivos periféricos. Proporciona una interfaz entre el hardware y el software, y maneja la comunicación entre diferentes procesos y el hardware. Sus funciones son: maneja la memoria, controla el acceso a los dispositivos, gestiona procesos y multitarea, y proporciona servicios básicos para las aplicaciones.
+
+* Shell: esta es una interfaz de línea de comandos que permite a los usuarios interactuar con el sistema operativo mediante comandos escritos. Actúa como un intérprete de comandos, ejecutando órdenes ingresadas por el usuario y proporcionando acceso a las funciones del sistema. Como funciones tiene: permitir la ejecución de comandos, la gestión de archivos y directorios, la configuración del sistema y la automatización de tareas a través de scripts.
+
+* Sistema de Archivos: es la estructura que el núcleo utiliza para almacenar y organizar archivos y directorios en el disco duro. Proporciona un método para organizar y acceder a los datos. Sus funciones son: administrar la creación, lectura, escritura y eliminación de archivos y directorios. También gestiona permisos de acceso y asegura la integridad de los datos.
+
+**(b)** La estructura básica del sistema operativo GNU/Linux se organiza en varias capas, cada una con un rol específico:
+
+* Núcleo (Kernel):
+
+Ubicación: Capa más baja.
+
+Funciones: Gestiona hardware, proporciona servicios básicos, y maneja la comunicación entre hardware y software.
+
+* Shell y Línea de Comandos:
+
+Ubicación: Capa encima del núcleo.
+
+Funciones: Proporciona una interfaz para que los usuarios interactúen con el sistema mediante comandos. Ejemplos de shells son Bash, Zsh y Fish.
+
+* Entorno de Usuario y Aplicaciones:
+
+Ubicación: Capa superior.
+
+Funciones: Incluye aplicaciones y herramientas de usuario, como editores de texto, navegadores web, y software de oficina. Estas aplicaciones son generalmente ejecutables que interactúan con el sistema a través de la shell y el núcleo.
+
+* Sistema de Archivos:
+
+Ubicación: Parte del núcleo, pero interactúa estrechamente con el entorno de usuario.
+
+Funciones: Organiza y gestiona los datos en discos duros, particiones, y otros medios de almacenamiento. Ejemplos de sistemas de archivos incluyen ext4, XFS y Btrfs.
+
+* Bibliotecas y Herramientas del Sistema:
+
+Ubicación: Se encuentran en el espacio de usuario, pero son fundamentales para la ejecución de aplicaciones.
+
+Funciones: Proporcionan funciones comunes y API para aplicaciones y servicios del sistema. Ejemplos incluyen la biblioteca estándar de C (glibc) y herramientas como coreutils.
+
+* Servicios y Daemons:
+
+Ubicación: Capa de servicios del sistema.
+
+Funciones: Ejecutan tareas en segundo plano para proporcionar funcionalidades adicionales, como servicios de red, gestión de impresión, y otras tareas administrativas. Ejemplos incluyen cron, sshd (para conexiones SSH) y apache2 (para servidores web).
+
+Esta estructura modular y jerárquica permite que GNU/Linux sea flexible personalizable y robusto para una amplia variedad de usos, desde servidores hasta sistemas de escritorio.
