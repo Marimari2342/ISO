@@ -187,3 +187,5 @@ Ubicación: Capa de servicios del sistema.
 Funciones: Ejecutan tareas en segundo plano para proporcionar funcionalidades adicionales, como servicios de red, gestión de impresión, y otras tareas administrativas. Ejemplos incluyen cron, sshd (para conexiones SSH) y apache2 (para servidores web).
 
 Esta estructura modular y jerárquica permite que GNU/Linux sea flexible personalizable y robusto para una amplia variedad de usos, desde servidores hasta sistemas de escritorio.
+
+</details>
