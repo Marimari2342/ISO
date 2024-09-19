@@ -269,4 +269,19 @@ Esta estructura modular y jerárquica permite que GNU/Linux sea flexible persona
 
 * Fish (Friendly Interactive Shell): se enfoca en la usabilidad con una sintaxis intuitiva, autocompletado inteligente y colorido. Ideal para principiantes debido a su simplicidad y amigabilidad, pero menos flexible para scripting avanzado.
 
+
+**(d)** Ubicación (path) de los comandos:
+
+* Comandos propios del Shell: Generalmente se encuentran en directorios como <code>/bin</code> y <code>/usr/bin</code>. Estos son comandos esenciales que vienen incluidos con el sistema.
+
+* Comandos externos: También pueden encontrarse en directorios como <code>/usr/local/bin</code> para aplicaciones instaladas por el usuario o <code>/sbin</code> para comandos de administración del sistema.
+
+**(e)** El shell no es parte del kernel porque cumple funciones diferentes. El kernel es el núcleo del sistema operativo, gestionando recursos de hardware y procesos, mientras que el shell es una interfaz de usuario que permite interactuar con el sistema. En resumen, el shell opera a un nivel más alto que el kernel, facilitando la interacción del usuario y no realizando las funciones fundamentales de gestión de recursos que realiza el kernel.
+
+**(f)** Sí, es posible definir un intérprete de comandos distinto para cada usuario. Esto se puede hacer editando el archivo <code>/etc/passwd</code>, donde se especifica el shell por defecto para cada usuario en el último campo de cada línea correspondiente a un usuario.
+
+el mismo se define en el archivo <code>/etc/passwd</code> o mediante el comando chsh (change shell), que permite a los usuarios cambiar su shell por defecto.
+
+Respecto a los permisos, cualquier usuario puede cambiar su shell por defecto usando chsh, pero para cambiar el shell de otros usuarios se necesitan permisos de superusuario (root).
+
 </details>
