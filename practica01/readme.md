@@ -207,4 +207,6 @@ Esta estructura modular y jerárquica permite que GNU/Linux sea flexible persona
 
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
 
+**(a)** El Kernel de GNU/Linux es el núcleo del sistema operativo Linux, que actúa como intermediario entre el hardware y las aplicaciones. Fue creado por Linus Torvalds en 1991, inspirado en el sistema Unix. La primera versión (0.01) se lanzó en septiembre de 1991, y a lo largo de los años, el kernel ha evolucionado con contribuciones de miles de desarrolladores y comunidades de software libre, expandiendo su funcionalidad y mejorando su estabilidad y rendimiento. Desde su origen, se ha utilizado en una variedad de sistemas, desde servidores hasta dispositivos móviles, y ha dado lugar a numerosas distribuciones de Linux.
+
 </details>
