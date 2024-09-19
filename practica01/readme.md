@@ -230,3 +230,43 @@ Esta estructura modular y jerárquica permite que GNU/Linux sea flexible persona
 **(f)** Sí, el Kernel de GNU/Linux es considerado un kernel monolítico. Esto significa que el núcleo del sistema operativo y los controladores de dispositivo se ejecutan en el mismo espacio de memoria en modo núcleo (kernel mode), lo que permite un acceso más rápido a los recursos del hardware. Sin embargo, GNU/Linux también soporta módulos del kernel, que permiten cargar y descargar controladores y funcionalidades en tiempo de ejecución, lo que le confiere cierta flexibilidad propia de arquitecturas más modulares. Sin embargo, la base sigue siendo monolítica, ya que la mayoría de sus funciones principales están integradas en un solo binario.
 
 </details>
+
+## 🔵 5. Intérprete de comandos (Shell):
+
+(a) ¿Qué es?
+
+(b) ¿Cuáles son sus funciones?
+
+(c) Mencione al menos 3 intérpretes de comandos que posee GNU/Linux y compárelos entre ellos.
+
+(d) ¿Dónde se ubican (path) los comandos propios y externos al Shell?
+
+(e) ¿Por qué considera que el Shell no es parte del Kernel de GNU/Linux?
+
+(f) ¿Es posible definir un intérprete de comandos distinto para cada usuario? ¿Desde dónde se define? ¿Cualquier usuario puede realizar dicha tarea?
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+**(a)** Un intérprete de comandos, o shell, es una interfaz de línea de comandos que permite a los usuarios interactuar con el sistema operativo. A través del shell, los usuarios pueden ejecutar comandos, gestionar archivos y ejecutar programas. Actúa como un intermediario entre el usuario y el sistema operativo, interpretando los comandos escritos y enviándolos al kernel para su ejecución.
+
+**(b)** Funciones del shell:
+
+* Ejecutar comandos: Permite a los usuarios ingresar y ejecutar comandos del sistema.
+
+* Automatización de tareas: Facilita la creación de scripts para automatizar tareas repetitivas.
+
+* Gestión de archivos: Permite a los usuarios manipular archivos y directorios (crear, eliminar, copiar, mover).
+
+* Interacción con procesos: Ofrece funciones para gestionar procesos en ejecución (iniciar, detener, cambiar prioridades).
+
+* Configuración del entorno: Permite la configuración de variables de entorno que influyen en el comportamiento del sistema y las aplicaciones.
+
+**(c)** Ejemplos de intérpretes de comandos:
+
+* Bash (Bourne Again Shell): es el más popular y versátil; soporta scripting  avanzado, autocompletado y edición de línea. Es ampliamente utilizado en muchas distribuciones y tiene una gran cantidad de recursos y documentación.
+
+* Zsh (Z Shell): ofrece características avanzadas como globbing, corrección ortográfica y soporte para temas. Es altamente configurable y amigable para usuarios que buscan personalización.
+
+* Fish (Friendly Interactive Shell): se enfoca en la usabilidad con una sintaxis intuitiva, autocompletado inteligente y colorido. Ideal para principiantes debido a su simplicidad y amigabilidad, pero menos flexible para scripting avanzado.
+
+</details>
