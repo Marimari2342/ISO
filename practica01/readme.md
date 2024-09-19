@@ -209,4 +209,18 @@ Esta estructura modular y jerárquica permite que GNU/Linux sea flexible persona
 
 **(a)** El Kernel de GNU/Linux es el núcleo del sistema operativo Linux, que actúa como intermediario entre el hardware y las aplicaciones. Fue creado por Linus Torvalds en 1991, inspirado en el sistema Unix. La primera versión (0.01) se lanzó en septiembre de 1991, y a lo largo de los años, el kernel ha evolucionado con contribuciones de miles de desarrolladores y comunidades de software libre, expandiendo su funcionalidad y mejorando su estabilidad y rendimiento. Desde su origen, se ha utilizado en una variedad de sistemas, desde servidores hasta dispositivos móviles, y ha dado lugar a numerosas distribuciones de Linux.
 
+**(b)** Funciones principales del Kernel:
+
+* Gestión de procesos: Controla la creación, ejecución y terminación de procesos.
+
+* Gestión de memoria: Administra la memoria RAM y el espacio de direcciones de los procesos.
+
+* Gestión de dispositivos: Proporciona control sobre dispositivos de hardware a través de controladores.
+
+* Sistema de archivos: Facilita la interacción con el sistema de archivos, permitiendo la lectura y escritura de datos.
+
+* Seguridad y acceso: Implementa mecanismos de seguridad para controlar el acceso a recursos del sistema.
+
+* Comunicación entre procesos: Permite la comunicación y sincronización entre procesos en ejecución.
+
 </details>
