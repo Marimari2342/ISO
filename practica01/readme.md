@@ -223,4 +223,10 @@ Esta estructura modular y jerárquica permite que GNU/Linux sea flexible persona
 
 * Comunicación entre procesos: Permite la comunicación y sincronización entre procesos en ejecución.
 
+**(d)** Sí, es posible tener más de un Kernel de GNU/Linux instalado en la misma máquina. Esto se realiza comúnmente en sistemas que utilizan múltiples versiones del kernel para pruebas o compatibilidad con hardware específico. Los administradores pueden seleccionar el kernel a utilizar en el momento del arranque a través de un gestor de arranque como GRUB.
+
+**(e)** El Kernel de GNU/Linux se encuentra ubicado en el directorio /boot, donde se almacenan los archivos del kernel (como vmlinuz), así como otros archivos necesarios para el arranque del sistema.
+
+**(f)** Sí, el Kernel de GNU/Linux es considerado un kernel monolítico. Esto significa que el núcleo del sistema operativo y los controladores de dispositivo se ejecutan en el mismo espacio de memoria en modo núcleo (kernel mode), lo que permite un acceso más rápido a los recursos del hardware. Sin embargo, GNU/Linux también soporta módulos del kernel, que permiten cargar y descargar controladores y funcionalidades en tiempo de ejecución, lo que le confiere cierta flexibilidad propia de arquitecturas más modulares. Sin embargo, la base sigue siendo monolítica, ya que la mayoría de sus funciones principales están integradas en un solo binario.
+
 </details>
