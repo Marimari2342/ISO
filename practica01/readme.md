@@ -285,3 +285,310 @@ el mismo se define en el archivo <code>/etc/passwd</code> o mediante el comando 
 Respecto a los permisos, cualquier usuario puede cambiar su shell por defecto usando chsh, pero para cambiar el shell de otros usuarios se necesitan permisos de superusuario (root).
 
 </details>
+
+## 🔵 6. Sistema de Archivos (File System):
+
+(a) ¿Qué es?
+
+(b) Mencione sistemas de archivos soportados por GNU/Linux.
+
+(c) ¿Es posible visualizar particiones del tipo FAT y NTFS en GNU/Linux?
+
+(d) ¿Cuál es la estructura básica de los File System en GNU/Linux? Mencione los directorios más importantes e indique qué tipo de información se encuentra en ellos. ¿A qué hace referencia la sigla FHS?
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+**(a)** Un sistema de archivos es el componente del sistema operativo encargado de organizar, gestionar, y almacenar los datos en los dispositivos de almacenamiento (como discos duros, SSDs, memorias USB, etc.). Un sistema de archivos define la manera en que los archivos se crean, editan, eliminan, y cómo se accede a ellos. Además, proporciona una estructura jerárquica en forma de directorios o carpetas para organizar estos archivos.
+
+**(b)** GNU/Linux soporta una amplia variedad de sistemas de archivos. Algunos de los más comunes son:
+
+* ext4 (cuarta versión del Extended File System): Es el sistema de archivos predeterminado en la mayoría de las distribuciones de Linux modernas.
+
+* ext3 (tercera versión del Extended File System): Sistema de archivos con soporte de journaling (registro de cambios), usado en distribuciones más antiguas.
+
+* ext2: Un sistema de archivos más antiguo, sin journaling.
+
+* XFS: Sistema de archivos de alto rendimiento, utilizado principalmente en servidores y sistemas que requieren escalabilidad.
+
+* Btrfs (B-tree File System): Sistema de archivos con características avanzadas como snapshots, compresión, y autocomprobación de integridad de datos.
+
+* ReiserFS: Sistema de archivos con buen rendimiento para el manejo de muchos archivos pequeños.
+
+* vfat: Versión extendida del FAT (File Allocation Table), compatible con FAT16 y FAT32.
+
+* NTFS: Sistema de archivos utilizado principalmente en Windows, soportado en GNU/Linux a través de herramientas como ntfs-3g.
+
+**(c)** Sí, es posible visualizar y trabajar con particiones FAT y NTFS en GNU/Linux. Para las particiones FAT (como FAT16 y FAT32), GNU/Linux ofrece soporte nativo y permite montar y manipular estas particiones sin problemas. Para las particiones NTFS, el soporte se proporciona a través del paquete ntfs-3g, que permite montar, leer, y escribir en particiones NTFS. Este paquete suele estar preinstalado en muchas distribuciones modernas.
+
+**(d)** GNU/Linux sigue una estructura de directorios jerárquica basada en el FHS (Filesystem Hierarchy Standard), que define cómo deben organizarse los directorios y archivos del sistema operativo. Los directorios más importantes son:
+
+* / (Root): Es la raíz del sistema de archivos. Todo el sistema de archivos de GNU/Linux parte de aquí.
+
+* /bin: Contiene binarios esenciales (programas ejecutables) para el funcionamiento básico del sistema, como ls, cp, mv.
+
+* /boot: Contiene los archivos necesarios para el arranque del sistema, como el kernel y el gestor de arranque.
+
+* /dev: Directorio para los archivos de dispositivos (dispositivos de hardware), como discos duros, puertos, etc.
+* /etc: Contiene archivos de configuración del sistema y de programas instalados.
+
+* /home: Contiene los directorios de los usuarios. Cada usuario tiene su propio subdirectorio donde almacena sus archivos personales.
+
+* /lib: Librerías esenciales para los binarios que están en /bin y /sbin.
+
+* /media: Punto de montaje para dispositivos externos como memorias USB y CDs.
+
+* /mnt: Otro directorio utilizado para montar sistemas de archivos temporalmente.
+
+* /opt: Directorio opcional donde se instalan paquetes de software adicionales.
+
+* /proc: Sistema de archivos virtual que contiene información sobre procesos en ejecución y otros datos del kernel.
+
+* /root: Directorio personal del usuario root (administrador del sistema).
+
+* /sbin: Contiene binarios esenciales para la administración del sistema, generalmente solo accesibles por el superusuario (root).
+
+* /tmp: Contiene archivos temporales que pueden ser eliminados después de reiniciar el sistema.
+
+* /usr: Contiene aplicaciones de usuario y utilidades. Dentro de /usr, encontramos subdirectorios como /usr/bin, /usr/lib, /usr/share, etc.
+
+* /var: Contiene archivos variables como registros (logs), datos de bases de datos, archivos de correo, etc.
+
+El FHS (Filesystem Hierarchy Standard) es el estándar que define la estructura y el contenido de los directorios en sistemas tipo Unix (como GNU/Linux). Su objetivo es asegurar una organización coherente y consistente de los archivos y directorios en todas las distribuciones de Linux, facilitando la administración y el desarrollo de software.
+
+</details>
+
+## 🔵 7. Particiones:
+
+(a) Definición. Tipos de particiones. Ventajas y Desventajas.
+
+(b) ¿Cómo se identifican las particiones en GNU/Linux? (Considere discos IDE, SCSI y SATA).
+
+(c) ¿Cuántas particiones son necesarias como mínimo para instalar GNU/Linux? Nómbrelas indicando tipo de partición, identificación, tipo de File System y punto de montaje.
+
+(d) Ejemplifique diversos casos de particionamiento dependiendo del tipo de tarea que se deba realizar en su sistema operativo.
+
+(e) ¿Qué tipo de software para particionar existe? Menciónelos y compare.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+**(a)** Una partición es una división lógica del espacio de almacenamiento en un disco duro u otro medio. Estas divisiones permiten organizar y gestionar el espacio de almacenamiento de manera más eficiente, al separar el disco en diferentes secciones que pueden ser utilizadas por distintos sistemas de archivos o sistemas operativos. Hay distintos tipos de particiones:
+
+* Primarias: son las particiones principales en un disco duro. Un disco puede tener hasta cuatro particiones primarias o tres primarias y una extendida. Ventajas: son las únicas que pueden ser utilizadas para arrancar un sistema operativo. La desventaja es la limitación en el número de particiones.
+
+* Extendidas: no se pueden utilizar directamente para almacenar datos, pero dentro de una partición extendida se pueden crear múltiples particiones lógicas. Ventajas: permite superar la limitación de las 4 particiones, ya que dentro de la extendida pueden existir muchas particiones lógicas. La desventaja es que sólo puede haber una partición extendida por disco.
+
+* Lógicas: se crean dentro de una partición extendida y se utilizan para almacenar datos. Ventajas: No tienen límite en el número dentro de la partición extendida.
+Desventajas: No pueden ser usadas para arrancar el sistema operativo (en sistemas con BIOS).
+
+**(b)** En GNU/Linux, las particiones se identifican de acuerdo con el nombre del dispositivo de disco seguido por un número que representa la partición.
+
+* Discos IDE: Se identifican como /dev/hd[a-d], donde: hda sería el primer disco IDE (maestro en el canal primario); hdb sería el segundo disco IDE (esclavo en el canal primario). Las particiones se numeran, por ejemplo: /dev/hda1, /dev/hda2, etc.
+
+* Discos SCSI y SATA: Se identifican como /dev/sd[a-z], donde: sda sería el primer disco; sdb sería el segundo disco, y así sucesivamente. Las particiones se numeran, por ejemplo: /dev/sda1, /dev/sda2, etc. Hoy en día, SATA y SCSI utilizan el mismo esquema de identificación, siendo el más común en equipos modernos.
+
+**(c)** Para instalar GNU/Linux, como mínimo se requieren dos particiones:
+
+* Partición raíz (/):
+
+Tipo de partición: Primaria o lógica.
+
+Identificación: Generalmente /dev/sda1 o similar.
+
+Tipo de File System: Generalmente ext4 (aunque también puede ser XFS, Btrfs, etc.).
+
+Punto de montaje: /.
+
+* Partición de intercambio (Swap):
+
+Tipo de partición: Primaria o lógica.
+
+Identificación: Generalmente /dev/sda2 o similar.
+
+Tipo de File System: Swap (específico para la memoria de intercambio).
+
+Punto de montaje: No tiene punto de montaje, se usa para paginación.
+
+**(d)**
+
+* Caso básico (uso doméstico):
+
+/ (raíz): 20-50 GB, ext4.
+
+Swap: 4-8 GB (dependiendo de la RAM).
+
+/home: Para datos personales, ext4, tamaño restante del disco.
+
+* Caso servidor (alta disponibilidad):
+
+/ (raíz): 20-50 GB, ext4.
+
+/var: 50-100 GB, donde se almacenan logs, bases de datos, etc.
+
+/home: Separado, si hay varios usuarios.
+
+/boot: 500 MB, para almacenar el kernel y los archivos de arranque.
+
+Swap: Igual o ligeramente superior a la RAM.
+
+* Caso de escritorio con múltiples sistemas operativos:
+
+/ (raíz): 20-30 GB para GNU/Linux.
+
+Swap: 4-8 GB.
+
+Partición para Windows: NTFS, en un espacio adecuado.
+
+/home: ext4, para almacenar datos de usuario.
+
+**(e)** Existen varias herramientas para particionar, tanto de línea de comandos como con interfaz gráfica:
+
+* GParted (Graphical Partition Editor):
+
+Plataforma: Interfaz gráfica.
+
+Características: Muy fácil de usar, soporta múltiples sistemas de archivos (ext4, NTFS, FAT32, etc.).
+
+Ventajas: Ideal para usuarios que prefieren GUI, permite redimensionar, crear y eliminar particiones sin pérdida de datos.
+
+* fdisk:
+
+Plataforma: Línea de comandos.
+
+Características: Maneja particiones MBR, muy básico pero poderoso.
+
+Ventajas: Disponible en cualquier distribución GNU/Linux, muy ligero.
+
+* parted:
+
+Plataforma: Línea de comandos.
+
+Características: Maneja particiones MBR y GPT, soporta sistemas de archivos como ext4, NTFS, FAT32.
+
+Ventajas: Flexible y avanzado, permite el uso de discos grandes (> 2TB) con GPT.
+
+* cfdisk:
+
+Plataforma: Línea de comandos.
+
+Características: Similar a fdisk, pero con una interfaz semigráfica.
+
+Ventajas: Muy sencillo de usar para tareas básicas.
+
+* GNOME Disks:
+
+Plataforma: Gráfica (GUI).
+
+Características: Herramienta de discos en el entorno de escritorio GNOME, fácil de usar.
+
+Ventajas: Ideal para usuarios de escritorio que necesitan particionar de manera sencilla sin recurrir a terminales.
+
+---------------------
+
+En conclusión, comparando, GParted es la mejor opción para la mayoría de los usuarios, ya que tiene una interfaz intuitiva y es compatible con muchos sistemas de archivos. En contraste, herramientas como fdisk o parted son más adecuadas para usuarios avanzados o cuando se requiere trabajar en sistemas sin entorno gráfico.
+
+</details>
+
+## 🔵 8. Arranque (bootstrap) de un Sistema Operativo:
+
+(a) ¿Qué es el BIOS? ¿Qué tarea realiza?
+
+(b) ¿Qué es UEFI? ¿Cuál es su función?
+
+(c) ¿Qué es el MBR? ¿Que es el MBC?
+
+(d) ¿A qué hacen referencia las siglas GPT? ¿Qué sustituye? Indique cuál es su formato.
+
+(e) ¿Cuál es la funcionalidad de un “Gestor de Arranque”? ¿Qué tipos existen? ¿Dónde se instalan? Cite gestores de arranque conocidos.
+
+(f) ¿Cuáles son los pasos que se suceden desde que se prende una computadora hasta que el Sistema Operativo es cargado (proceso de bootstrap)?
+
+(g) Analice el proceso de arranque en GNU/Linux y describa sus principales pasos.
+
+(h) ¿Cuáles son los pasos que se suceden en el proceso de parada (shutdown) de GNU/Linux?
+
+(i) ¿Es posible tener en una PC GNU/Linux y otro Sistema Operativo instalado? Justifique.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+</details>
+
+## 🔵 9. Archivos:
+
+(a) ¿Cómo se identifican los archivos en GNU/Linux?
+
+(b) Investigue el funcionamiento de los editores vi y mcedit, y los comandos cat y more.
+
+(c) Cree un archivo llamado “prueba.exe” en su directorio personal usando el vi. El mismo debe contener su número de alumno y su nombre.
+
+(d) Investigue el funcionamiento del comando file. Pruébelo con diferentes archivos. ¿Qué diferencia nota?
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+</details>
+
+## 🔵 10. Indique qué comando es necesario utilizar para realizar cada una de las siguientes acciones.
+
+Investigue su funcionamiento y parámetros más importantes:
+
+(a) Cree la carpeta ISO2017
+
+(b) Acceda a la carpeta (cd)
+
+(c) Cree dos archivos con los nombres iso2017-1 e iso2017-2 (touch)
+
+(d) Liste el contenido del directorio actual (ls)
+
+(e) Visualizar la ruta donde estoy situado (pwd)
+
+(f) Busque todos los archivos en los que su nombre contiene la cadena “iso*” (find)
+
+(g) Informar la cantidad de espacio libre en disco (df)
+
+(h) Verifique los usuarios conectado al sistema (who)
+
+(i) Acceder a el archivo iso2017-1 e ingresar Nombre y Apellido
+
+(j) Mostrar en pantalla las últimas líneas de un archivo (tail).
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+</details>
+
+## 🔵 11 y 12. Investigue:
+
+(a) Funcionamiento y parámetros más importantes.
+
+(b) Indique en qué directorios se almacenan dichos comandos.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+* shutdown
+
+* reboot
+
+* halt
+
+* locate
+
+* uname
+
+* gmesg
+
+* lspci
+
+* at
+
+* netstat
+
+* mount
+
+* umount
+
+* head
+
+* losetup
+
+* write
+
+* mkfs
+
+* fdisk (con cuidado)
+
+</details>
