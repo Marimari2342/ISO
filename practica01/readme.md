@@ -749,7 +749,7 @@ Cuando se utiliza file en diferentes archivos, el comando identifica el tipo de 
 
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
 
-* shutdown
+1. shutdown
 
 Función: Apaga o reinicia el sistema de manera controlada.
 
@@ -760,7 +760,7 @@ Parámetros importantes
   - `shutdown -h +10`: Apaga el sistema en 10 minutos.
   - `shutdown -c`: Cancela un apagado programado.
 
-* reboot
+2. reboot
 
 Función: Reinicia el sistema.
 
@@ -768,7 +768,7 @@ Parámetros importantes:
   - `reboot -f`: Fuerza el reinicio sin cerrar procesos.
   - `reboot --halt`: Apaga la máquina en lugar de reiniciarla.
 
-* halt
+3. halt
 
 Función: Detiene todas las operaciones del sistema.
 
@@ -776,7 +776,7 @@ Parámetros importantes:
   - `halt -p`: Apaga la máquina después de detenerla.
   - `halt --force`: Fuerza la detención.
 
-* locate
+4. locate
 
 Función: Busca archivos rápidamente usando una base de datos previamente indexada.
 
@@ -784,7 +784,7 @@ Parámetros importantes:
   - `locate nombre_archivo`: Busca archivos que coincidan con el nombre dado.
   - `locate -i nombre_archivo`: Realiza la búsqueda sin distinguir entre mayúsculas y minúsculas.
 
-* uname
+5. uname
 
 Función: Muestra información sobre el sistema operativo.
 
@@ -792,84 +792,101 @@ Parámetros importantes:
   - `uname -r`: Muestra la versión del kernel.
   - `uname -a`: Muestra toda la información del sistema (nombre del kernel, versión, etc.).
 
-#### **6. `dmesg`**
-- **Función**: Muestra mensajes del kernel, principalmente durante el arranque.
-- **Parámetros importantes**:
+6. dmesg
+
+Función: Muestra mensajes del kernel, principalmente durante el arranque.
+
+Parámetros importantes:
   - `dmesg | less`: Permite ver los mensajes de forma paginada.
   - `dmesg --clear`: Limpia el búfer de mensajes del kernel.
 
-#### **7. `lspci`**
-- **Función**: Lista todos los dispositivos PCI (Periféricos Conectados Interfaz).
-- **Parámetros importantes**:
+7. lspci
+
+Función: Lista todos los dispositivos PCI (Periféricos Conectados Interfaz).
+
+Parámetros importantes:
   - `lspci -v`: Muestra información detallada de cada dispositivo PCI.
   - `lspci -nn`: Muestra los números de identificación del dispositivo PCI.
 
-#### **8. `at`**
-- **Función**: Programa la ejecución de comandos a una hora específica.
-- **Parámetros importantes**:
+8. at
+
+Función: Programa la ejecución de comandos a una hora específica.
+
+Parámetros importantes:
   - `at 15:00`: Ejecuta comandos programados a las 15:00.
   - `atq`: Muestra los trabajos programados pendientes.
   - `atrm <número de trabajo>`: Elimina un trabajo programado.
 
-#### **9. `netstat`**
-- **Función**: Muestra información sobre conexiones de red, tablas de enrutamiento, estadísticas de interfaz y más.
-- **Parámetros importantes**:
+9. netstat
+
+Función: Muestra información sobre conexiones de red, tablas de enrutamiento, estadísticas de interfaz y más.
+
+Parámetros importantes:
   - `netstat -tuln`: Muestra todas las conexiones TCP/UDP activas.
   - `netstat -r`: Muestra la tabla de enrutamiento.
 
-#### **10. `mount`**
-- **Función**: Monta sistemas de archivos en dispositivos.
-- **Parámetros importantes**:
+10. mount
+Función: Monta sistemas de archivos en dispositivos.
+
+Parámetros importantes:
   - `mount /dev/sda1 /mnt`: Monta una partición en el directorio `/mnt`.
   - `mount -o ro /dev/sda1 /mnt`: Monta una partición en modo de solo lectura.
 
-#### **11. `umount`**
-- **Función**: Desmonta sistemas de archivos.
-- **Parámetros importantes**:
+11. umount
+
+Función: Desmonta sistemas de archivos.
+
+Parámetros importantes:
   - `umount /mnt`: Desmonta el sistema de archivos montado en `/mnt`.
   - `umount -f /mnt`: Fuerza el desmontaje.
 
-#### **12. `head`**
-- **Función**: Muestra las primeras líneas de un archivo.
-- **Parámetros importantes**:
+12. head
+
+Función: Muestra las primeras líneas de un archivo.
+
+Parámetros importantes:
   - `head -n 5 archivo.txt`: Muestra las primeras 5 líneas de un archivo.
   - `head -c 100 archivo.txt`: Muestra los primeros 100 caracteres del archivo.
 
-#### **13. `losetup`**
-- **Función**: Configura o asocia un dispositivo de bucle (loop device).
-- **Parámetros importantes**:
+13. losetup
+
+Función: Configura o asocia un dispositivo de bucle (loop device).
+
+Parámetros importantes:
   - `losetup /dev/loop0 archivo.img`: Asocia un archivo a un dispositivo de bucle.
   - `losetup -d /dev/loop0`: Desasocia el dispositivo de bucle.
 
-#### **14. `write`**
-- **Función**: Envía mensajes a otros usuarios conectados.
-- **Parámetros importantes**:
+14. write
+
+Función: Envía mensajes a otros usuarios conectados.
+
+Parámetros importantes:
   - `write usuario`: Envía un mensaje a un usuario específico.
   - Para enviar mensajes, se escribe el texto seguido de Enter. Para salir, se usa `Ctrl+D`.
 
-#### **15. `mkfs`**
-- **Función**: Crea un sistema de archivos en una partición.
-- **Parámetros importantes**:
+15. mkfs
+
+Función: Crea un sistema de archivos en una partición.
+
+Parámetros importantes:
   - `mkfs.ext4 /dev/sda1`: Crea un sistema de archivos ext4 en la partición `/dev/sda1`.
   - `mkfs.vfat /dev/sda1`: Crea un sistema de archivos FAT en `/dev/sda1`.
 
-#### **16. `fdisk`**
-- **Función**: Gestiona las particiones del disco.
-- **Parámetros importantes**:
+16. fdisk
+
+Función: Gestiona las particiones del disco.
+
+Parámetros importantes:
   - `fdisk /dev/sda`: Abre el menú de particionamiento para el disco `/dev/sda`.
   - Comandos dentro de `fdisk`: `p` (imprimir tabla de particiones), `n` (crear nueva partición), `d` (eliminar partición).
 
-### (b) Directorios donde se almacenan los comandos
+---------------------
 
-Los comandos mencionados suelen estar almacenados en directorios estándar como:
-- **/bin**: Contiene comandos esenciales para todos los usuarios, incluso durante el arranque o en modo de recuperación.
-- **/usr/bin**: Contiene la mayoría de los comandos de usuario.
-- **/sbin**: Comandos de administración del sistema.
-- **/usr/sbin**: Comandos de administración adicionales, generalmente para usuarios con privilegios.
+**(b)** Los comandos mencionados suelen estar almacenados en directorios estándar como:
 
-### Directorios específicos para algunos comandos:
-- **/bin**: `shutdown`, `reboot`, `halt`, `uname`, `dmesg`, `mount`, `umount`, `head`, `write`.
-- **/sbin**: `mkfs`, `fdisk`, `losetup`.
-- **/usr/bin**: `locate`, `at`, `netstat`, `lspci`.
+* **/bin**: Contiene comandos esenciales para todos los usuarios, incluso durante el arranque o en modo de recuperación.
+* **/usr/bin**: Contiene la mayoría de los comandos de usuario.
+* **/sbin**: Comandos de administración del sistema.
+* **/usr/sbin**: Comandos de administración adicionales, generalmente para usuarios con privilegios.
 
 </details>
