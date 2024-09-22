@@ -21,6 +21,8 @@ Un SO es un programa que actua como intermediario entre el usuario y el hardware
 
 El GNU/Linux es un SO tipo Unix (Unix like), pero libre, el mismo esta diseñado por miles de programadores, es gratuito y de libre distribucion (se puede bajar desde la Web, CD, etc), tiene diversas distribuciones (customizaciones) y es de codigo abierto, es decir, que podemos ver como esta hecho. Esto nos permite estudiarlo, personalizarlo, auditarlo, etc.
 
+---------------------
+
 **(a)** Características más relevantes de GNU/Linux:
 
 * Código Abierto y Libre: GNU/Linux es un sistema operativo de código abierto, lo que significa que su código fuente está disponible públicamente para que cualquiera pueda verlo, modificarlo y distribuirlo. La ventaja de esto es que permite la personalización y adaptación del sistema a necesidades específicas, promueve la transparencia en el desarrollo del software y favorece la colaboración comunitaria.
@@ -35,6 +37,8 @@ El GNU/Linux es un SO tipo Unix (Unix like), pero libre, el mismo esta diseñado
 
 * Compatibilidad y Software: GNU/Linux ofrece compatibilidad con una amplia gama de software, desde aplicaciones de línea de comandos hasta entornos de escritorio completos. Además, es compatible con muchos estándares abiertos y protocolos. Esto facilita la integración con diferentes herramientas y aplicaciones, y permite a los usuarios ejecutar una variedad de software en el sistema operativo.
 
+---------------------
+
 **(c)** **GNU** es un acrónimo recursivo que significa "GNU's Not Unix" (**GNU** **N**o es **U**nix). Es un proyecto de software libre iniciado por Richard Stallman en 1983 con el objetivo de desarrollar un sistema operativo completo y libre que sea compatible con Unix.
 
 GNU se refiere a 4 libertades principales de los usuarios del software:
@@ -47,9 +51,13 @@ GNU se refiere a 4 libertades principales de los usuarios del software:
 
 * Libertad para mejorar los programas.
 
+---------------------
+
 **(e)** Multitarea es una capacidad del sistema operativo que permite a una computadora ejecutar múltiples tareas o procesos de manera simultánea. En un contexto de sistemas operativos, la multitarea se refiere a la capacidad de un sistema para gestionar y coordinar varios procesos al mismo tiempo, ya sea que esos procesos se ejecuten en paralelo (simultáneamente) o de manera secuencial muy rápida, dando la impresión de que se están ejecutando al mismo tiempo.
 
 GNU/Linux utiliza multitarea preventiva para gestionar la ejecución de procesos, asegurando una asignación justa y eficiente del tiempo de CPU. Esta capacidad permite que GNU/Linux maneje múltiples aplicaciones y tareas al mismo tiempo, mejorando el rendimiento y la capacidad de respuesta del sistema.
+
+---------------------
 
 **(f)** **POSIX** (Portable Operating System Interface) es un conjunto de estándares definidos para mantener la compatibilidad y portabilidad entre sistemas operativos. Estos estándares están diseñados para permitir que el software escrito para un sistema POSIX pueda ser ejecutado en otros sistemas POSIX sin modificaciones significativas.
 
@@ -109,6 +117,8 @@ Gestor de paquetes: Pacman.
 
 Ciclo de lanzamiento: Rolling release (actualizaciones continuas sin versiones específicas).
 
+---------------------
+
 **(b)** Las diferencias entre distribuciones de GNU/Linux pueden abarcar varios aspectos:
 
 * Gestor de paquetes: Cada distribución utiliza un sistema diferente para la instalación y gestión de software. Por ejemplo, Debian y Ubuntu usan APT, mientras que Fedora usa DNF y Arch usa Pacman.
@@ -120,6 +130,8 @@ Ciclo de lanzamiento: Rolling release (actualizaciones continuas sin versiones e
 * Filosofía y objetivos: Cada distribución puede tener una orientación diferente, como ser amigable para principiantes (Ubuntu), ofrecer software más actualizado y experimental (Fedora), o proporcionar una base mínima para usuarios avanzados (Arch Linux).
 
 * Compatibilidad y soporte de hardware: Algunas distribuciones están optimizadas para ciertos tipos de hardware o configuraciones, mientras que otras buscan ser lo más universales posible.
+
+---------------------
 
 **(c)** Debian es una de las distribuciones de GNU/Linux más antiguas y respetadas. Es conocida por su estabilidad, robustez y enfoque en el software libre.
 
@@ -148,6 +160,8 @@ Universalidad: Ser una distribución universal que pueda funcionar en una varied
 * Shell: esta es una interfaz de línea de comandos que permite a los usuarios interactuar con el sistema operativo mediante comandos escritos. Actúa como un intérprete de comandos, ejecutando órdenes ingresadas por el usuario y proporcionando acceso a las funciones del sistema. Como funciones tiene: permitir la ejecución de comandos, la gestión de archivos y directorios, la configuración del sistema y la automatización de tareas a través de scripts.
 
 * Sistema de Archivos: es la estructura que el núcleo utiliza para almacenar y organizar archivos y directorios en el disco duro. Proporciona un método para organizar y acceder a los datos. Sus funciones son: administrar la creación, lectura, escritura y eliminación de archivos y directorios. También gestiona permisos de acceso y asegura la integridad de los datos.
+
+---------------------
 
 **(b)** La estructura básica del sistema operativo GNU/Linux se organiza en varias capas, cada una con un rol específico:
 
@@ -209,6 +223,8 @@ Esta estructura modular y jerárquica permite que GNU/Linux sea flexible persona
 
 **(a)** El Kernel de GNU/Linux es el núcleo del sistema operativo Linux, que actúa como intermediario entre el hardware y las aplicaciones. Fue creado por Linus Torvalds en 1991, inspirado en el sistema Unix. La primera versión (0.01) se lanzó en septiembre de 1991, y a lo largo de los años, el kernel ha evolucionado con contribuciones de miles de desarrolladores y comunidades de software libre, expandiendo su funcionalidad y mejorando su estabilidad y rendimiento. Desde su origen, se ha utilizado en una variedad de sistemas, desde servidores hasta dispositivos móviles, y ha dado lugar a numerosas distribuciones de Linux.
 
+---------------------
+
 **(b)** Funciones principales del Kernel:
 
 * Gestión de procesos: Controla la creación, ejecución y terminación de procesos.
@@ -223,9 +239,15 @@ Esta estructura modular y jerárquica permite que GNU/Linux sea flexible persona
 
 * Comunicación entre procesos: Permite la comunicación y sincronización entre procesos en ejecución.
 
+---------------------
+
 **(d)** Sí, es posible tener más de un Kernel de GNU/Linux instalado en la misma máquina. Esto se realiza comúnmente en sistemas que utilizan múltiples versiones del kernel para pruebas o compatibilidad con hardware específico. Los administradores pueden seleccionar el kernel a utilizar en el momento del arranque a través de un gestor de arranque como GRUB.
 
+---------------------
+
 **(e)** El Kernel de GNU/Linux se encuentra ubicado en el directorio /boot, donde se almacenan los archivos del kernel (como vmlinuz), así como otros archivos necesarios para el arranque del sistema.
+
+---------------------
 
 **(f)** Sí, el Kernel de GNU/Linux es considerado un kernel monolítico. Esto significa que el núcleo del sistema operativo y los controladores de dispositivo se ejecutan en el mismo espacio de memoria en modo núcleo (kernel mode), lo que permite un acceso más rápido a los recursos del hardware. Sin embargo, GNU/Linux también soporta módulos del kernel, que permiten cargar y descargar controladores y funcionalidades en tiempo de ejecución, lo que le confiere cierta flexibilidad propia de arquitecturas más modulares. Sin embargo, la base sigue siendo monolítica, ya que la mayoría de sus funciones principales están integradas en un solo binario.
 
@@ -249,6 +271,8 @@ Esta estructura modular y jerárquica permite que GNU/Linux sea flexible persona
 
 **(a)** Un intérprete de comandos, o shell, es una interfaz de línea de comandos que permite a los usuarios interactuar con el sistema operativo. A través del shell, los usuarios pueden ejecutar comandos, gestionar archivos y ejecutar programas. Actúa como un intermediario entre el usuario y el sistema operativo, interpretando los comandos escritos y enviándolos al kernel para su ejecución.
 
+---------------------
+
 **(b)** Funciones del shell:
 
 * Ejecutar comandos: Permite a los usuarios ingresar y ejecutar comandos del sistema.
@@ -261,6 +285,8 @@ Esta estructura modular y jerárquica permite que GNU/Linux sea flexible persona
 
 * Configuración del entorno: Permite la configuración de variables de entorno que influyen en el comportamiento del sistema y las aplicaciones.
 
+---------------------
+
 **(c)** Ejemplos de intérpretes de comandos:
 
 * Bash (Bourne Again Shell): es el más popular y versátil; soporta scripting  avanzado, autocompletado y edición de línea. Es ampliamente utilizado en muchas distribuciones y tiene una gran cantidad de recursos y documentación.
@@ -269,6 +295,7 @@ Esta estructura modular y jerárquica permite que GNU/Linux sea flexible persona
 
 * Fish (Friendly Interactive Shell): se enfoca en la usabilidad con una sintaxis intuitiva, autocompletado inteligente y colorido. Ideal para principiantes debido a su simplicidad y amigabilidad, pero menos flexible para scripting avanzado.
 
+---------------------
 
 **(d)** Ubicación (path) de los comandos:
 
@@ -276,7 +303,11 @@ Esta estructura modular y jerárquica permite que GNU/Linux sea flexible persona
 
 * Comandos externos: También pueden encontrarse en directorios como <code>/usr/local/bin</code> para aplicaciones instaladas por el usuario o <code>/sbin</code> para comandos de administración del sistema.
 
+---------------------
+
 **(e)** El shell no es parte del kernel porque cumple funciones diferentes. El kernel es el núcleo del sistema operativo, gestionando recursos de hardware y procesos, mientras que el shell es una interfaz de usuario que permite interactuar con el sistema. En resumen, el shell opera a un nivel más alto que el kernel, facilitando la interacción del usuario y no realizando las funciones fundamentales de gestión de recursos que realiza el kernel.
+
+---------------------
 
 **(f)** Sí, es posible definir un intérprete de comandos distinto para cada usuario. Esto se puede hacer editando el archivo <code>/etc/passwd</code>, donde se especifica el shell por defecto para cada usuario en el último campo de cada línea correspondiente a un usuario.
 
@@ -300,6 +331,8 @@ Respecto a los permisos, cualquier usuario puede cambiar su shell por defecto us
 
 **(a)** Un sistema de archivos es el componente del sistema operativo encargado de organizar, gestionar, y almacenar los datos en los dispositivos de almacenamiento (como discos duros, SSDs, memorias USB, etc.). Un sistema de archivos define la manera en que los archivos se crean, editan, eliminan, y cómo se accede a ellos. Además, proporciona una estructura jerárquica en forma de directorios o carpetas para organizar estos archivos.
 
+---------------------
+
 **(b)** GNU/Linux soporta una amplia variedad de sistemas de archivos. Algunos de los más comunes son:
 
 * ext4 (cuarta versión del Extended File System): Es el sistema de archivos predeterminado en la mayoría de las distribuciones de Linux modernas.
@@ -318,7 +351,11 @@ Respecto a los permisos, cualquier usuario puede cambiar su shell por defecto us
 
 * NTFS: Sistema de archivos utilizado principalmente en Windows, soportado en GNU/Linux a través de herramientas como ntfs-3g.
 
+---------------------
+
 **(c)** Sí, es posible visualizar y trabajar con particiones FAT y NTFS en GNU/Linux. Para las particiones FAT (como FAT16 y FAT32), GNU/Linux ofrece soporte nativo y permite montar y manipular estas particiones sin problemas. Para las particiones NTFS, el soporte se proporciona a través del paquete ntfs-3g, que permite montar, leer, y escribir en particiones NTFS. Este paquete suele estar preinstalado en muchas distribuciones modernas.
+
+---------------------
 
 **(d)** GNU/Linux sigue una estructura de directorios jerárquica basada en el FHS (Filesystem Hierarchy Standard), que define cómo deben organizarse los directorios y archivos del sistema operativo. Los directorios más importantes son:
 
@@ -380,11 +417,15 @@ El FHS (Filesystem Hierarchy Standard) es el estándar que define la estructura 
 * Lógicas: se crean dentro de una partición extendida y se utilizan para almacenar datos. Ventajas: No tienen límite en el número dentro de la partición extendida.
 Desventajas: No pueden ser usadas para arrancar el sistema operativo (en sistemas con BIOS).
 
+---------------------
+
 **(b)** En GNU/Linux, las particiones se identifican de acuerdo con el nombre del dispositivo de disco seguido por un número que representa la partición.
 
 * Discos IDE: Se identifican como /dev/hd[a-d], donde: hda sería el primer disco IDE (maestro en el canal primario); hdb sería el segundo disco IDE (esclavo en el canal primario). Las particiones se numeran, por ejemplo: /dev/hda1, /dev/hda2, etc.
 
 * Discos SCSI y SATA: Se identifican como /dev/sd[a-z], donde: sda sería el primer disco; sdb sería el segundo disco, y así sucesivamente. Las particiones se numeran, por ejemplo: /dev/sda1, /dev/sda2, etc. Hoy en día, SATA y SCSI utilizan el mismo esquema de identificación, siendo el más común en equipos modernos.
+
+---------------------
 
 **(c)** Para instalar GNU/Linux, como mínimo se requieren dos particiones:
 
@@ -407,6 +448,8 @@ Identificación: Generalmente /dev/sda2 o similar.
 Tipo de File System: Swap (específico para la memoria de intercambio).
 
 Punto de montaje: No tiene punto de montaje, se usa para paginación.
+
+---------------------
 
 **(d)**
 
@@ -439,6 +482,8 @@ Swap: 4-8 GB.
 Partición para Windows: NTFS, en un espacio adecuado.
 
 /home: ext4, para almacenar datos de usuario.
+
+---------------------
 
 **(e)** Existen varias herramientas para particionar, tanto de línea de comandos como con interfaz gráfica:
 
@@ -482,9 +527,7 @@ Características: Herramienta de discos en el entorno de escritorio GNOME, fáci
 
 Ventajas: Ideal para usuarios de escritorio que necesitan particionar de manera sencilla sin recurrir a terminales.
 
----------------------
-
-En conclusión, comparando, GParted es la mejor opción para la mayoría de los usuarios, ya que tiene una interfaz intuitiva y es compatible con muchos sistemas de archivos. En contraste, herramientas como fdisk o parted son más adecuadas para usuarios avanzados o cuando se requiere trabajar en sistemas sin entorno gráfico.
+* Conclusión, comparando, GParted es la mejor opción para la mayoría de los usuarios, ya que tiene una interfaz intuitiva y es compatible con muchos sistemas de archivos. En contraste, herramientas como fdisk o parted son más adecuadas para usuarios avanzados o cuando se requiere trabajar en sistemas sin entorno gráfico.
 
 </details>
 
