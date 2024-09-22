@@ -664,6 +664,81 @@ Multiboot: Permite seleccionar entre múltiples sistemas operativos instalados e
 (d) Investigue el funcionamiento del comando file. Pruébelo con diferentes archivos. ¿Qué diferencia nota?
 
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+**(a)** En GNU/Linux, los archivos se identifican y gestionan mediante un sistema de archivos jerárquico. Cada archivo se identifica por:
+
+* Ruta de acceso (path): Un archivo se identifica por su ruta completa. Puede ser: Ruta absoluta (comienza desde el directorio raíz /, por ejemplo, /home/usuario/documento.txt); o Ruta relativa, (relativa al directorio actual, por ejemplo, documento.txt o ./documento.txt).
+
+* Nombre del archivo: GNU/Linux distingue entre mayúsculas y minúsculas. Además,internamente, cada archivo se identifica con un número de inode (identificador único dentro de un sistema de archivos). El inode contiene información sobre el archivo, como permisos, propietario, tamaño, y ubicación en disco.
+
+---------------------
+
+**(b)** Funcionamiento de los editores vi y mcedit, y los comandos cat y more
+
+* vi:  es un editor de texto muy popular en sistemas Unix/Linux. Funciona en modo texto y tiene dos modos principales: modo de comandos, que ermite realizar operaciones de edición como guardar, salir, copiar, pegar, etc; y modo de inserción que se usa para escribir o modificar texto.
+
+Comandos básicos en vi:
+
+i: Cambia al modo de inserción.
+
+Esc: Cambia al modo de comandos.
+
+:w: Guarda el archivo.
+
+:q: Sale de vi.
+
+:wq: Guarda y sale.
+
+* mcedit: es el editor de texto incorporado en Midnight Commander, un gestor de archivos. Es más simple que vi y tiene una interfaz visual con menús accesibles mediante atajos de teclado, lo que lo hace más amigable para los usuarios novatos.
+
+Comandos básicos en mcedit:
+
+F2: Guarda el archivo.
+
+F10: Salir del editor.
+
+Ctrl + O: Alternar entre el editor y el administrador de archivos.
+
+* cat: el comando cat (concatenate) se utiliza para mostrar el contenido de uno o más archivos en la salida estándar (pantalla); concatenar archivos y mostrar o guardar su contenido.
+
+* more: el comando more permite ver el contenido de un archivo página por página, útil para archivos largos que no caben en una sola pantalla.
+
+---------------------
+
+**(c)** Para crear un archivo llamado “prueba.exe” usando vi:
+
+1. Abro el terminal y navego al directorio personal con:
+
+~~~
+cd ~
+~~~
+
+2. Abro vi y creo el archivo con el siguiente comando:
+
+~~~
+vi prueba.exe
+~~~
+
+3. Una vez dentro de vi, presiono <code>i</code> para entrar en modo de inserción.
+
+4. Escribo número de alumno y nombre:
+
+~~~
+23272/0 - Marianela Rojas
+~~~
+
+4. Para guardar el archivo y salir, presiono Esc para volver al modo de comandos y luego escribo:
+
+~~~
+:wq
+~~~
+
+---------------------
+
+**(d)** El comando file en GNU/Linux se utiliza para determinar el tipo de archivo. No se basa solo en la extensión del archivo (como .txt o .exe), sino que inspecciona el contenido del archivo para determinar su tipo real.
+
+Cuando se utiliza file en diferentes archivos, el comando identifica el tipo de contenido real del archivo, independientemente de su nombre o extensión. En otras palabras, file se basa en el contenido y no en la extensión del archivo. Por ejemplo, si renombramos un archivo de texto como <code>archivo.exe</code>, file seguirá detectando que es un archivo de texto.
+
 </details>
 
 ## 🔵 10. Indique qué comando es necesario utilizar para realizar cada una de las siguientes acciones.
