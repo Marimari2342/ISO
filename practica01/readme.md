@@ -552,6 +552,105 @@ Ventajas: Ideal para usuarios de escritorio que necesitan particionar de manera 
 (i) ¿Es posible tener en una PC GNU/Linux y otro Sistema Operativo instalado? Justifique.
 
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+**(a)** BIOS (Basic Input/Output System) es un firmware almacenado en una memoria no volátil (ROM o Flash) de la placa base del ordenador. Su función principal es iniciar y probar el hardware al encender la computadora, y luego cargar y ejecutar el sistema operativo desde un dispositivo de almacenamiento.
+
+Las principales tareas del BIOS son:
+
+* Realiza el POST (Power-On Self-Test), que verifica si el hardware funciona correctamente.
+
+* Busca un dispositivo de arranque (disco duro, SSD, unidad USB, CD/DVD) y carga el gestor de arranque.
+
+* Proporciona una interfaz básica para interactuar con el hardware antes de cargar el sistema operativo.
+
+---------------------
+
+**(b)** UEFI (Unified Extensible Firmware Interface) es una versión más moderna del BIOS que ofrece una interfaz más avanzada entre el firmware del hardware y el sistema operativo. Sustituye al BIOS tradicional, brindando una serie de ventajas.
+
+* Facilita el proceso de arranque del sistema operativo.
+
+* Permite el uso de discos duros de más de 2 TB mediante el esquema de partición GPT.
+
+* Ofrece una interfaz gráfica, soporte para el uso del mouse y arranque más rápido.
+
+* Incorpora funciones de seguridad, como Secure Boot, para prevenir la carga de software malicioso durante el arranque.
+
+---------------------
+
+**(c)** MBR (Master Boot Record) es un sector especial ubicado al principio de un disco (sector 0) que contiene la información necesaria para iniciar el sistema operativo. El MBR incluye:
+
+* La tabla de particiones, que describe las particiones en el disco.
+
+* El código de arranque que carga el gestor de arranque o el sistema operativo.
+
+* MBC (Master Boot Code) es la sección del MBR que contiene el código de arranque, es decir, el software que se ejecuta durante el proceso de arranque.
+
+---------------------
+
+**(d)** GPT (GUID Partition Table) es un esquema de particionamiento de discos que forma parte del estándar UEFI. GPT sustituye al esquema de particiones MBR. Utiliza identificadores únicos globales (GUID) para cada partición. Soporta discos de más de 2 TB y permite hasta 128 particiones primarias (en lugar de las 4 limitadas por MBR). GPT almacena múltiples copias de la tabla de particiones en diferentes lugares del disco para mayor seguridad.
+
+---------------------
+
+**(e)** Un gestor de arranque es un software que permite seleccionar qué sistema operativo se cargará al iniciar el ordenador. Es el primer programa que se ejecuta después del BIOS o UEFI y se encarga de transferir el control al sistema operativo.
+
+* Tipos de gestores de arranque:
+
+Simple: Carga directamente un único sistema operativo.
+
+Multiboot: Permite seleccionar entre múltiples sistemas operativos instalados en la misma máquina.
+
+* Dónde se instalan: los gestores de arranque generalmente se instalan en el MBR (en sistemas BIOS/MBR) o en la partición EFI (en sistemas UEFI).
+
+* Gestores de arranque conocidos: **GRUB** (GNU GRand Unified Bootloader), popular en sistemas GNU/Linux; **Windows Boot Manager** utilizado por sistemas operativos Windows; **Syslinux** minimalista, para sistemas Linux y pequeñas distribuciones.
+
+---------------------
+
+**(f)** Los pasos que se suceden desde que se prende una computadora hasta que el Sistema Operativo es cargado son:
+
+* Encendido: Al encender la computadora, la CPU comienza a ejecutar las instrucciones del firmware (BIOS/UEFI).
+
+* POST (Power-On Self-Test): El firmware realiza una verificación del hardware (memoria, CPU, discos, etc.).
+
+* Carga del gestor de arranque: El BIOS/UEFI localiza el gestor de arranque en el dispositivo de almacenamiento y lo carga en la memoria.
+
+* Ejecución del gestor de arranque: El gestor de arranque permite seleccionar un sistema operativo, si hay varios.
+
+* Carga del sistema operativo: El gestor de arranque carga el kernel del sistema operativo en la memoria y transfiere el control.
+
+---------------------
+
+**(g)** Proceso de arranque en GNU/Linux y principales pasos:
+
+* BIOS/UEFI: Se inicia el BIOS o UEFI y realiza el POST, luego carga el gestor de arranque (por ejemplo, GRUB).
+
+* GRUB: GRUB presenta una interfaz para seleccionar el sistema operativo. Luego, carga el kernel de GNU/Linux.
+
+* Cargar el kernel: El kernel se carga en la memoria y comienza a detectar e inicializar los controladores de hardware.
+
+* init o systemd: Después de que el kernel está cargado, se ejecuta el proceso init (o systemd en sistemas modernos), que gestiona la secuencia de arranque de servicios y procesos.
+
+* Servicios de usuario: Se cargan los servicios y demonios (red, interfaz gráfica, etc.).
+
+* Login: Finalmente, el sistema muestra la pantalla de inicio de sesión o entra en el entorno gráfico.
+
+---------------------
+
+**(h)** Los pasos que se suceden en el proceso de parada (shutdown) de GNU/Linux son:
+
+* Notificación de apagado: El usuario o administrador emite un comando de apagado (shutdown, halt o poweroff).
+
+* init o systemd: Se ejecuta el proceso de cierre de los servicios en orden inverso al arranque.
+
+* Cierre de procesos: Se cierran los procesos del usuario y los servicios del sistema.
+
+* Desmontaje de sistemas de archivos: Los sistemas de archivos montados se desmontan de manera segura para evitar la corrupción de datos.
+
+* Apagado del hardware: Finalmente, el sistema operativo emite la señal para apagar el hardware.
+
+---------------------
+
+**(i)** Sí, es posible tener GNU/Linux junto con otro sistema operativo (como Windows) en la misma PC. Este proceso se llama arranque dual (dual-boot). El gestor de arranque (como GRUB) permite seleccionar qué sistema operativo se desea iniciar al encender la computadora. Para hacer esto, se suelen dividir los discos en particiones independientes para cada sistema operativo.
+
 </details>
 
 ## 🔵 9. Archivos:
