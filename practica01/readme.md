@@ -749,7 +749,7 @@ Cuando se utiliza file en diferentes archivos, el comando identifica el tipo de 
 
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
 
-1. shutdown
+***1. shutdown***
 
 Función: Apaga o reinicia el sistema de manera controlada.
 
@@ -760,7 +760,7 @@ Parámetros importantes
   - `shutdown -h +10`: Apaga el sistema en 10 minutos.
   - `shutdown -c`: Cancela un apagado programado.
 
-2. reboot
+***2. reboot***
 
 Función: Reinicia el sistema.
 
@@ -768,7 +768,7 @@ Parámetros importantes:
   - `reboot -f`: Fuerza el reinicio sin cerrar procesos.
   - `reboot --halt`: Apaga la máquina en lugar de reiniciarla.
 
-3. halt
+***3. halt***
 
 Función: Detiene todas las operaciones del sistema.
 
