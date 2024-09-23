@@ -143,7 +143,11 @@ Información almacenada: Define qué runlevel usar, acciones a realizar en cada 
 Estructura: Las líneas tienen el formato id:runlevels:action:process, donde: id (el identificador único de la línea); runlevels (en que runlevels se ejecuta el comando); action (la acción a tomar, por ejemplo, iniciar, reiniciar).
 process (el proceso o script que se debe ejecutar).
 
+---------------------
+
 **(f)** Comandos para cambiar el runlevel: Usas el comando init <Y> o telinit <Y> donde <Y> es el runlevel al que quieres cambiar. Por ejemplo, init 3 cambiaría al runlevel 3. Este cambio no es permanente, es temporal. Para hacer un cambio permanente, se debe modificar el runlevel en el archivo /etc/inittab (en sistemas basados en SystemV).
+
+---------------------
 
 **(g)** Scripts RC:
 
