@@ -440,13 +440,7 @@ cd ~/documentos
 
 (g) Comando kill. ¿Cuál es su funcionalidad? Cite ejemplos.
 
-(h) Investigue la funcionalidad y parámetros de los siguientes comandos relacionados con el manejo de procesos en GNU/Linux. Además, compárelos entre ellos:
-ps
-kill
-pstree
-killall
-top
-nice
+(h) Investigue la funcionalidad y parámetros de los siguientes comandos relacionados con el manejo de procesos en GNU/Linux. Además, compárelos entre ellos: ps, kill, pstree, killall, top, nice.
 
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
 
@@ -543,7 +537,7 @@ comando 2> errores.log
 
 ---------------------
 
-(g) El comando kill se utiliza para enviar señales a los procesos. La señal más común es la de terminación (SIGTERM), que indica al proceso que termine de manera ordenada. Ejemplos:
+**(g)** El comando kill se utiliza para enviar señales a los procesos. La señal más común es la de terminación (SIGTERM), que indica al proceso que termine de manera ordenada. Ejemplos:
 
 * Matar un proceso con su PID:
 
@@ -559,7 +553,7 @@ kill -9 1234
 
 ---------------------
 
-(h) Comparación de comandos relacionados con el manejo de procesos:
+**(h)** Comparación de comandos relacionados con el manejo de procesos:
 
 * ps: muestra una lista estática de los procesos en ejecución en ese momento. Se utiliza para ver información detallada sobre procesos individuales o de grupos de procesos.
 
@@ -595,6 +589,247 @@ top
 
 ~~~
 nice -n 10 comando
+~~~
+
+</details>
+
+## 🟣 7. Otros comandos de Linux (Indique funcionalidad y parámetros):
+
+(a) ¿A qué hace referencia el concepto de empaquetar archivos en GNU/Linux?
+
+(b) Seleccione 4 archivos dentro de algún directorio al que tenga permiso y sume el tamaño de cada uno de estos archivos. Cree un archivo empaquetado conteniendo estos 4 archivos y compare los tamaños de los mismos. ¿Qué característica nota?
+
+(c) ¿Qué acciones debe llevar a cabo para comprimir 4 archivos en uno solo? Indique la secuencia de comandos ejecutados.
+
+(d) ¿Pueden comprimirse un conjunto de archivos utilizando un único comando?
+
+(e) Investigue la funcionalidad de los siguientes comandos: tar, grep, gzip, zgrep, wc.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+**(a)** Empaquetar archivos en GNU/Linux significa agrupar varios archivos en uno solo, generalmente usando el comando tar. No se comprimen, solo se combinan.
+
+---------------------
+
+**(b)** Para sumar el tamaño de 4 archivos:
+
+~~~
+du -sh archivo1 archivo2 archivo3 archivo4
+~~~
+
+Luego, empaquetas usando:
+
+~~~
+tar -cvf archivo.tar archivo1 archivo2 archivo3 archivo4
+~~~
+
+El archivo empaquetado tiene un tamaño similar a la suma de los archivos originales.
+
+---------------------
+
+**(c)** Comprimir 4 archivos en uno solo:
+
+* Empaquetar:
+
+~~~
+tar -cvf archivos.tar archivo1 archivo2 archivo3 archivo4
+~~~
+
+* Comprimir:
+
+~~~
+gzip archivos.tar
+~~~
+
+---------------------
+
+**(d)** Sí, se pueden comprimir directamente archivos con un solo comando:
+
+~~~
+tar -czvf archivo_comprimido.tar.gz archivo1 archivo2 archivo3 archivo4
+~~~
+
+---------------------
+
+**(e)**
+
+* tar: Empaqueta y comprime archivos.
+
+~~~
+tar -czvf archivo.tar.gz archivo1 archivo2
+~~~
+
+* grep: Busca patrones en archivos.
+
+~~~
+grep "texto" archivo.txt
+~~~
+
+* gzip: Comprime archivos.
+
+~~~
+gzip archivo.txt
+~~~
+
+* zgrep: Busca en archivos comprimidos.
+
+~~~
+zgrep "texto" archivo.gz
+~~~
+
+* wc: Cuenta líneas, palabras y caracteres.
+
+~~~
+wc archivo.txt
+~~~
+
+</details>
+
+
+## 🟣 8. 
+
+Indique qué acción realiza cada uno de los comandos indicados a continuación considerando su orden. Suponga que se ejecutan desde un usuario que no es root ni pertenece al grupo de root. (Asuma que se encuentra posicionado en el directorio de trabajo del usuario con el que se logueó). En caso de no poder ejecutarse el comando, indique la razón:
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+* ls -l > prueba --> Lista archivos en detalle, redirigiendo la salida al archivo prueba.
+
+* ps > PRUEBA --> Muestra procesos del usuario, redirigiendo la salida al archivo PRUEBA.
+
+* chmod 710 prueba --> Da permisos de lectura/ejecución al grupo y ejecución a otros para prueba.
+
+* chown root : root PRUEBA --> cambia el propietario del archivo PRUEBA al usuario root y el grupo del archivo también a root. Como no eres root ni tienes permisos de superusuario, este comando fallará porque solo un administrador puede cambiar los propietarios de archivos y directorios en GNU/Linux.
+
+* chmod 777 PRUEBA --> Permite lectura, escritura y ejecución para todos en PRUEBA.
+
+* chmod 700 /etc/passwd --> Falla porque no tienes permisos para cambiar permisos de este archivo crítico.
+
+* passwd root --> No puedes cambiar la contraseña de root sin permisos.
+
+* rm PRUEBA --> Borra el archivo PRUEBA.
+
+* man /etc/shadow --> Falla porque no es un comando válido para visualizar ese archivo.
+
+* f i n d / −name ∗ . conf --> Busca archivos con extensión .conf en todo el sistema.
+
+* usermod root -d /home/newroot -L --> Falla porque no puedes modificar usuarios sin permisos de root.
+
+* cd /root --> No puedes acceder a /root sin permisos de superusuario.
+
+* rm ∗ --> Borra todos los archivos en el directorio actual.
+
+* cd /etc --> Cambia el directorio a /etc.
+
+* cp * /home -R --> Copia todos los archivos y directorios de /etc a /home, falla sin permisos.
+
+* shutdown --> Falla porque no puedes apagar el sistema sin ser root.
+
+</details>
+
+## 🟣 9. Indique qué comando sería necesario ejecutar para realizar cada una de las siguientes acciones:
+
+(a) Terminar el proceso con PID 23.
+
+(b) Terminar el proceso llamado init o systemd. ¿Qué resultados obtuvo?
+
+(c) Buscar todos los archivos de usuarios en los que su nombre contiene la cadena “.conf”
+
+(d) Guardar una lista de procesos en ejecución el archivo /home/<su nombre de usuario>/ procesos
+
+(e) Cambiar los permisos del archivo /home/<su nombre de usuario>/xxxx a:
+
+* Usuario: Lectura, escritura, ejecución
+
+* Grupo: Lectura, ejecución
+
+* Otros: ejecución
+
+(f) Cambiar los permisos del archivo /home/<su nombre de usuario>/yyyy a:
+
+* Usuario: Lectura, escritura.
+
+* Grupo: Lectura, ejecución
+
+* Otros: Ninguno
+
+(g) Borrar todos los archivos del directorio /tmp
+
+(h) Cambiar el propietario del archivo /opt/isodata al usuario iso2010
+
+(i) Guardar en el archivo /home/<su nombre de usuario>/donde el directorio donde me encuentro en este momento, en caso de que el archivo exista no se debe eliminar su contenido anterior.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+**(a)** Terminar el proceso con PID 23:
+
+~~~
+kill 23
+~~~
+
+---------------------
+
+**(b)** Terminar el proceso llamado init o systemd:
+
+~~~
+killall init
+~~~
+
+Resultado: No debería terminar porque son procesos críticos del sistema.
+
+---------------------
+
+**(c)** Buscar archivos con ".conf" en el nombre:
+
+~~~
+find /home -name "*.conf"
+~~~
+
+---------------------
+
+**(d)** Guardar lista de procesos en ejecución:
+
+~~~
+ps > /home/<tu_nombre>/procesos
+~~~
+
+---------------------
+
+**(e)** Cambiar permisos (usuario: rwx, grupo: rx, otros: x):
+
+~~~
+chmod 751 /home/<tu_nombre>/xxxx
+~~~
+
+---------------------
+
+**(f)** Cambiar permisos (usuario: rw, grupo: rx, otros: ninguno):
+
+~~~
+chmod 750 /home/<tu_nombre>/yyyy
+~~~
+
+---------------------
+
+**(g)** Borrar todos los archivos en /tmp:
+
+~~~
+rm /tmp/*
+~~~
+
+---------------------
+
+**(h)** Cambiar propietario a iso2010:
+
+~~~
+chown iso2010 /opt/isodata
+~~~
+
+---------------------
+
+**(i)** Guardar el directorio actual en un archivo sin eliminar su contenido:
+
+~~~
+pwd >> /home/<tu_nombre>/donde
 ~~~
 
 </details>
