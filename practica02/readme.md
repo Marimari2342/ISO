@@ -423,3 +423,178 @@ cd ~/documentos
 * mv: Mueve o renombra archivos o directorios. Ejemplo: mv archivo.txt nuevo_nombre.txt.
 
 </details>
+
+## 🟣 6. Procesos:
+
+(a) ¿Qué es un proceso? ¿A que hacen referencia las siglas PID y PPID? ¿Todos los procesos tienen estos atributos en GNU/Linux? Justifique. Indique qué otros atributos tiene un proceso.
+
+(b) Indique qué comandos se podrían utilizar para ver qué procesos están en ejecución en un sistema GNU/Linux.
+
+(c) ¿Qué significa que un proceso se está ejecutando en Background? ¿Y en Foreground?
+
+(d) ¿Cómo puedo hacer para ejecutar un proceso en Background? ¿Como puedo hacer para pasar un proceso de background a foreground y viceversa?
+
+(e) Pipe ( | ). ¿Cuál es su finalidad? Cite ejemplos de su utilización.
+
+(f) Redirección. ¿Qué tipo de redirecciones existen? ¿Cuál es su finalidad? Cite ejemplos de utilización.
+
+(g) Comando kill. ¿Cuál es su funcionalidad? Cite ejemplos.
+
+(h) Investigue la funcionalidad y parámetros de los siguientes comandos relacionados con el manejo de procesos en GNU/Linux. Además, compárelos entre ellos:
+ps
+kill
+pstree
+killall
+top
+nice
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+**(a)** Un proceso es un programa en ejecución que realiza una tarea o conjunto de tareas en el sistema operativo. En GNU/Linux, un proceso contiene información del programa, como su estado, el tiempo de CPU que ha utilizado, la memoria que ocupa, y otros atributos relevantes.
+
+* PID (Process ID): Es el identificador único de un proceso dentro del sistema operativo.
+
+* PPID (Parent Process ID): Es el identificador del proceso padre, es decir, el proceso que generó o inició el proceso actual.
+
+En GNU/Linux, todos los procesos tienen un PID y un PPID, incluso el proceso raíz del sistema, que es el proceso con PID 1 (usualmente llamado init o systemd en sistemas modernos).
+
+---------------------
+
+**(b)** Comandos para ver procesos en ejecución en GNU/Linux:
+
+* ps: Muestra una instantánea de los procesos actuales.
+
+* top: Muestra en tiempo real los procesos y su consumo de recursos.
+
+* htop: Similar a top, pero más interactivo.
+
+* pstree: Muestra los procesos en forma de árbol, mostrando jerarquías.
+
+* pgrep: Busca procesos que coinciden con un patrón.
+
+* jobs: Muestra los trabajos en ejecución en el terminal actual.
+
+---------------------
+
+**(c)**
+
+* Background: Es un proceso que se ejecuta en segundo plano. No requiere la interacción directa del usuario y no bloquea la terminal.
+
+* Foreground: Un proceso que se ejecuta en primer plano, bloquea la terminal hasta que termina y requiere la atención directa del usuario.
+
+---------------------
+
+**(d)** Ejecutar un proceso en Background:
+
+* Para ejecutar un proceso en segundo plano desde el inicio, se añade un & al final del comando:
+
+~~~
+comando &
+~~~
+
+* Pasar un proceso de background a foreground: se utiliza el comando fg seguido del número de trabajo (%jobnumber).
+
+~~~
+fg %1
+~~~
+
+Pasar un proceso de foreground a background: primero se suspende el proceso con Ctrl + Z, y luego se envía al segundo plano con bg.
+
+~~~
+bg %1
+~~~
+
+---------------------
+
+**(e)** Pipe (|) permite redirigir la salida estándar de un comando como entrada estándar de otro comando. Ejemplos:
+
+~~~
+ls -l | grep "archivo"
+cat archivo.txt | wc -l
+~~~
+
+---------------------
+
+**(f)** La redirección permite enviar la salida de un comando a un archivo o recibir la entrada desde un archivo en lugar del teclado. Tipos de redirección:
+
+* <code>></code> Redirige la salida estándar a un archivo, sobrescribiéndolo.
+
+~~~
+echo "Hola" > archivo.txt
+~~~
+
+* <code>>></code> Redirige la salida estándar a un archivo, agregando datos.
+
+~~~
+echo "Mundo" >> archivo.txt
+~~~
+
+* <code><</code> Redirige la entrada estándar desde un archivo.
+
+~~~
+cat < archivo.txt
+~~~
+
+* <code>2></code> Redirige la salida de errores estándar a un archivo.
+
+~~~
+comando 2> errores.log
+~~~
+
+---------------------
+
+(g) El comando kill se utiliza para enviar señales a los procesos. La señal más común es la de terminación (SIGTERM), que indica al proceso que termine de manera ordenada. Ejemplos:
+
+* Matar un proceso con su PID:
+
+~~~
+kill 1234
+~~~
+
+* Enviar la señal SIGKILL (matar el proceso inmediatamente):
+
+~~~
+kill -9 1234
+~~~
+
+---------------------
+
+(h) Comparación de comandos relacionados con el manejo de procesos:
+
+* ps: muestra una lista estática de los procesos en ejecución en ese momento. Se utiliza para ver información detallada sobre procesos individuales o de grupos de procesos.
+
+~~~
+ps aux
+~~~
+
+* kill: envia señales a procesos, generalmente para detenerlos. Ejemplo:
+
+~~~
+kill 1234
+~~~
+
+*pstree: muestra los procesos en forma de árbol jerárquico, indicando la relación entre los procesos y sus procesos padres.
+
+~~~
+pstree
+~~~
+
+* killall: mata todos los procesos que coinciden con un nombre dado.
+
+~~~
+killall firefox
+~~~
+
+* top: muestra información en tiempo real sobre el uso de recursos del sistema, como el uso de CPU y memoria por cada proceso. Es interactivo.
+
+~~~
+top
+~~~
+
+* nice: se utiliza para iniciar un proceso con una prioridad diferente (un valor de "nice" más alto o más bajo). Valores más altos significan menor prioridad.
+
+~~~
+nice -n 10 comando
+~~~
+
+</details>
