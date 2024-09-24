@@ -160,3 +160,38 @@ Determinación del script a ejecutar: Según el runlevel, se ejecutan scripts en
 Orden de ejecución: Los scripts se ejecutan en un orden específico. Aquellos con nombres que comienzan con S son ejecutados al inicio (Start), y aquellos que comienzan con K al detenerse (Kill). El número después de la S o K determina el orden de ejecución.
 
 </details>
+
+## 🟣 3. SystemD(https://github.com/systemd/systemd):
+
+(a) ¿Qué es sytemd?
+
+(b) ¿A qué hace referencia el concepto de Unit en SystemD?
+
+(c) ¿Para que sirve el comando systemctl en SystemD?
+
+(d) ¿A qué hace referencia el concepto de target en SystemD?
+
+(e) Ejecute el comando pstree. ¿Qué es lo que se puede observar a partir de la ejecución de este comando?
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+**(a)** SystemD es un sistema de inicialización y gestor de servicios para sistemas operativos Linux. Se encarga de arrancar y gestionar los procesos del sistema, así como de manejar servicios y recursos de manera eficiente. Introduce un enfoque paralelizado para iniciar servicios y proporciona funcionalidades como la gestión de dependencias y la supervisión de procesos.
+
+---------------------
+
+**(b)** En SystemD, una "Unit" es un archivo de configuración que describe un servicio, un dispositivo, un punto de montaje, o cualquier otra unidad que el sistema puede gestionar. Cada unidad tiene un tipo (por ejemplo, service, socket, mount, etc.) y define cómo debe ser gestionada, incluyendo sus dependencias, condiciones de inicio y comandos a ejecutar.
+
+---------------------
+
+**(c)** El comando systemctl es la herramienta principal para interactuar con el sistema y los servicios gestionados por SystemD. Permite iniciar, detener, reiniciar, habilitar o deshabilitar servicios, así como consultar el estado de las unidades y gestionar configuraciones del sistema.
+
+---------------------
+
+**(d)** Un "target" en SystemD es una unidad especial que agrupa otras unidades para facilitar la gestión del inicio del sistema. Por ejemplo, multi-user.target agrupa todos los servicios necesarios para que el sistema esté disponible en modo multiusuario. Los targets permiten establecer diferentes niveles de ejecución y simplifican el proceso de arranque.
+
+---------------------
+
+**(e)** El comando pstree muestra un árbol de procesos en ejecución en el sistema, organizando los procesos en función de sus jerarquías parentales. Al ejecutar pstree, podrás observar cómo los procesos están relacionados entre sí, quién es el proceso padre de cada uno, y la estructura general de los procesos activos. Esto es útil para visualizar la organización y el uso de recursos en el sistema.
+
+</details>
+
