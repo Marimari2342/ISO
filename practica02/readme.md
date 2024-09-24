@@ -195,7 +195,7 @@ Orden de ejecución: Los scripts se ejecutan en un orden específico. Aquellos c
 
 </details>
 
-## 4. Usuarios:
+## 🟣 4. Usuarios:
 
 (a) ¿Qué archivos son utilizados en un sistema GNU/Linux para guardar la información
 de los usuarios?
@@ -292,7 +292,7 @@ sudo userdel -r iso2017
 
 </details>
 
-## 5. FileSystem:
+## 🟣 5. FileSystem:
 
 (a) ¿Cómo son definidos los permisos sobre archivos en un sistema GNU/Linux?
 
