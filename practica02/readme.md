@@ -833,3 +833,127 @@ pwd >> /home/<tu_nombre>/donde
 ~~~
 
 </details>
+
+## 🟣 10. Indique qué comando sería necesario ejecutar para realizar las siguientes acciones:
+
+(a) Ingrese al sistema como usuario “root”
+
+(b) Cree un usuario. Elija como nombre, por convención, la primer letra de su nombre seguida de su apellido. Asígnele una contraseña de acceso.
+
+(c) ¿Qué archivos fueron modificados luego de crear el usuario y qué directorios se crearon?
+
+(d) Crear un directorio en /tmp llamado cursada2017
+
+(e) Copiar todos los archivos de /var/log al directorio antes creado.
+
+(f) Para el directorio antes creado (y los archivos y subdirectorios contenidos en él) cambiar el propietario y grupo al usuario creado y grupo users.
+
+(g) Agregue permiso total al dueño, de escritura al grupo y escritura y ejecución a todos los demás usuarios para todos los archivos dentro de un directorio en forma recursiva.
+
+(h) Acceda a otra terminal virtual para loguearse con el usuario antes creado.
+
+(i) Una vez logueado con el usuario antes creado, averigüe cuál es el nombre de su terminal.
+
+(j) Verifique la cantidad de procesos activos que hay en el sistema.
+
+(k) Verifiqué la cantidad de usuarios conectados al sistema.
+
+(l) Vuelva a la terminal del usuario root, y envíele un mensaje al usuario anteriormente creado, avisándole que el sistema va a ser apagado.
+
+(m) Apague el sistema.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+**(a)** Ingresar como usuario root:
+
+~~~
+su -
+~~~
+
+**(b)** Crear un usuario (ejemplo: mrojas):
+
+~~~
+useradd mrojas
+passwd mrojas
+~~~
+
+**(c)** 
+
+* Archivos modificados: /etc/passwd, /etc/shadow, /etc/group
+
+* Directorio creado: /home/mrojas/
+
+**(d)** Crear un directorio en /tmp:
+
+~~~
+mkdir /tmp/cursada2017
+~~~
+
+**(e)** Copiar archivos de /var/log:
+
+~~~
+cp /var/log/* /tmp/cursada2017
+~~~
+
+**(f)** Cambiar propietario y grupo:
+
+~~~
+chown -R jdoe:users /tmp/cursada2017
+~~~
+
+**(g)** Cambiar permisos de forma recursiva:
+
+~~~
+chmod -R 764 /tmp/cursada2017
+~~~
+
+**(h)** Acceder a otra terminal virtual:
+
+~~~
+Ctrl + Alt + F2
+~~~
+
+**(i)** Averiguar el nombre de la terminal:
+
+~~~
+tty
+~~~
+
+**(j)** Verificar procesos activos:
+
+~~~
+ps aux | wc -l
+~~~
+
+**(k)** Verificar usuarios conectados:
+
+~~~
+who | wc -l
+~~~
+
+**(l)** Enviar mensaje a usuario:
+
+~~~
+echo "El sistema va a ser apagado" | write mrojas
+~~~
+
+**(m)** Apagar el sistema:
+
+~~~
+shutdown now
+~~~
+
+</details>
+## 🟣 11.
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+</details>
+## 🟣 12.
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+</details>
+## 🟣 13.
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+</details>
+## 🟣 14.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+</details>
