@@ -195,3 +195,108 @@ Orden de ejecución: Los scripts se ejecutan en un orden específico. Aquellos c
 
 </details>
 
+## 4. Usuarios:
+
+(a) ¿Qué archivos son utilizados en un sistema GNU/Linux para guardar la información
+de los usuarios?
+
+(b) ¿A qué hacen referencia las siglas UID y GID? ¿Pueden coexistir UIDs iguales en un sistema GNU/Linux? Justifique.
+
+(c) ¿Qué es el usuario root? ¿Puede existir más de un usuario con este perfil en GNU/Linux? ¿Cuál es la UID del root?.
+
+(d) Agregue un nuevo usuario llamado iso2017 a su instalación de GNU/Linux, especifique que su home sea creada en /home/iso_2017, y hágalo miembro del grupo catedra (si no existe, deberá crearlo). Luego, sin iniciar sesión como este usuario cree un archivo en su home personal que le pertenezca. Luego de todo esto, borre el usuario y verifique que no queden registros de él en los archivos de información de los usuarios y grupos.
+
+(e) Investigue la funcionalidad y parámetros de los siguientes comandos:
+useradd ó adduser
+usermod
+userdel
+su
+groupadd
+who
+groupdel
+passwd
+
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+**(a)** Los archivos principales que almacenan información de los usuarios en un sistema GNU/Linux son:
+
+* /etc/passwd: Contiene información básica de los usuarios, como nombre de usuario, UID, GID y el directorio home.
+
+* /etc/shadow: Almacena las contraseñas de los usuarios de forma segura y también incluye información sobre la expiración de las contraseñas.
+
+* /etc/group: Contiene información sobre los grupos de usuarios, incluyendo el nombre del grupo y sus GIDs.
+
+---------------------
+
+**(b)**
+
+* UID (User ID): Es el identificador único de un usuario en el sistema.
+
+* GID (Group ID): Es el identificador único de un grupo en el sistema.
+
+En un sistema GNU/Linux, los UIDs deben ser únicos. No pueden coexistir UIDs iguales para diferentes usuarios; sin embargo, un mismo GID puede ser utilizado por múltiples usuarios, ya que varios usuarios pueden pertenecer al mismo grupo.
+
+---------------------
+
+**(c)** El usuario root es el superusuario en sistemas GNU/Linux, con permisos completos para realizar cualquier operación en el sistema. Solo debe haber un usuario root por defecto en el sistema. La UID del usuario root es 0.
+
+---------------------
+
+**(d)**
+Pasos para agregar un nuevo usuario llamado iso2017 con su home en /home/iso_2017 y hacerlo miembro del grupo catedra:
+
+1. Crear el grupo (si no existe):
+
+~~~
+sudo groupadd catedra
+~~~
+
+2. Agregar el usuario:
+
+~~~
+sudo useradd -m -d /home/iso_2017 -G catedra iso2017
+~~~
+
+3. Establecer una contraseña para el usuario:
+
+~~~
+sudo passwd iso2017
+~~~
+
+4. Crear un archivo en su home (sin iniciar sesión como el usuario):
+
+~~~
+sudo touch /home/iso_2017/archivo.txt
+sudo chown iso2017: /home/iso_2017/archivo.txt
+~~~
+
+5. Eliminar el usuario:
+
+~~~
+sudo userdel -r iso2017
+~~~
+
+6. Verificar la eliminación: Asegúrate de que no hay registros en /etc/passwd, /etc/shadow, y /etc/group relacionados con el usuario iso2017.
+
+---------------------
+
+**(e)** Comandos y sus funcionalidades
+
+* useradd o adduser: Comando para crear un nuevo usuario. useradd es más básico, mientras que adduser suele ser un script más amigable que gestiona algunos pasos automáticamente.
+
+* usermod: Permite modificar la información de un usuario existente, como cambiar su nombre, GID, o grupos a los que pertenece.
+
+* userdel: Se utiliza para eliminar un usuario. La opción -r elimina también su directorio home y los archivos asociados.
+
+* su: Cambia el usuario en la sesión actual. Usualmente se utiliza su - para acceder como root, cargando su entorno.
+
+* groupadd: Crea un nuevo grupo en el sistema.
+
+* who: Muestra los usuarios que están actualmente conectados al sistema.
+
+* groupdel: Elimina un grupo existente del sistema.
+
+* passwd: Cambia la contraseña de un usuario.
+
+</details>
