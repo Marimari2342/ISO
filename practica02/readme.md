@@ -206,16 +206,7 @@ de los usuarios?
 
 (d) Agregue un nuevo usuario llamado iso2017 a su instalación de GNU/Linux, especifique que su home sea creada en /home/iso_2017, y hágalo miembro del grupo catedra (si no existe, deberá crearlo). Luego, sin iniciar sesión como este usuario cree un archivo en su home personal que le pertenezca. Luego de todo esto, borre el usuario y verifique que no queden registros de él en los archivos de información de los usuarios y grupos.
 
-(e) Investigue la funcionalidad y parámetros de los siguientes comandos:
-useradd ó adduser
-usermod
-userdel
-su
-groupadd
-who
-groupdel
-passwd
-
+(e) Investigue la funcionalidad y parámetros de los siguientes comandos.
 
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
 
@@ -298,5 +289,137 @@ sudo userdel -r iso2017
 * groupdel: Elimina un grupo existente del sistema.
 
 * passwd: Cambia la contraseña de un usuario.
+
+</details>
+
+## 5. FileSystem:
+
+(a) ¿Cómo son definidos los permisos sobre archivos en un sistema GNU/Linux?
+
+(b) Investigue la funcionalidad y parámetros de los siguientes comandos relacionados con los permisos en GNU/Linux: chmod, chown, chgrp.
+
+(c) Al utilizar el comando chmod generalmente se utiliza una notación octal asociada para definir permisos. ¿Qué significa esto? ¿A qué hace referencia cada valor?
+
+(d) ¿Existe la posibilidad de que algún usuario del sistema pueda acceder a determinado archivo para el cual no posee permisos? Nombrelo, y realice las pruebas correspondientes.
+
+(e) Explique los conceptos de “full path name” y “relative path name”. De ejemplos claros de cada uno de ellos.
+
+(f) ¿Con qué comando puede determinar en qué directorio se encuentra actualmente?¿Existe alguna forma de ingresar a su directorio personal sin necesidad de escribir todo el path completo? ¿Podría utilizar la misma idea para acceder a otros directorios? ¿Cómo? Explique con un ejemplo.
+
+(g) Investigue la funcionalidad y parámetros de los siguientes comandos relacionados con el uso del FileSystem.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+**(a)** En un sistema GNU/Linux, los permisos sobre archivos son definidos para controlar el acceso a archivos y directorios. Cada archivo y directorio tiene un conjunto de permisos que determina quién puede leer, escribir o ejecutar el archivo. 
+
+Los permisos se asignan a tres categorías de usuarios:
+
+* Propietario (user)
+
+* Grupo (group)
+
+* Otros (others)
+
+Cada archivo tiene tres tipos de permisos:
+
+* Lectura (r)
+
+* Escritura (w)
+
+* Ejecución (x)
+
+---------------------
+
+**(b)** Comandos relacionados con permisos:
+
+* chmod: Cambia los permisos de acceso de un archivo o directorio. Puede usar notación simbólica (r, w, x) o octal. Ejemplo: chmod u+x archivo.txt (agrega permiso de ejecución al propietario).
+
+* chown: Cambia el propietario y/o grupo de un archivo o directorio. Ejemplo: chown usuario:grupo archivo.txt (cambia propietario y grupo).
+
+* chgrp: Cambia el grupo asociado a un archivo o directorio. Ejemplo: chgrp grupo archivo.txt (cambia solo el grupo).
+
+---------------------
+
+**(c)** La notación octal se utiliza en chmod para establecer permisos de manera más concisa. Cada tipo de permiso se representa con un número:
+
+4: Lectura (r)
+
+2: Escritura (w)
+
+1: Ejecución (x)
+
+Los valores se suman para definir los permisos:
+
+7: rwx (lectura, escritura, ejecución)
+
+6: rw- (lectura, escritura)
+
+5: r-x (lectura, ejecución)
+
+4: r-- (solo lectura)
+
+0: --- (sin permisos)
+
+Por ejemplo, chmod 755 archivo.txt asigna permisos rwx para el propietario y r-x para el grupo y otros.
+
+---------------------
+
+**(d)** Un usuario podría acceder a un archivo sin permisos si se utiliza un programa intermedio que tiene los permisos necesarios, como el comando sudo, que permite ejecutar comandos con permisos de superusuario. Puedes probarlo intentando acceder a un archivo con permisos restringidos a través de un script ejecutable por el root.
+
+---------------------
+
+**(e)** Full path name: Es la ruta completa desde la raíz del sistema de archivos hasta el archivo o directorio. Ejemplo: /home/usuario/documentos/archivo.txt.
+
+Relative path name: Es la ruta relativa a tu directorio actual. Ejemplo: si estás en /home/usuario, puedes referirte a documentos/archivo.txt sin necesidad de la ruta completa.
+
+---------------------
+
+**(f)** 
+
+Comando para saber en qué directorio estás actualmente:
+
+~~~
+pwd
+~~~
+
+Para ingresar a tu directorio personal sin escribir el path completo, puedes usar el símbolo ~:
+
+~~~
+cd ~
+~~~
+
+También puedes acceder a otros directorios desde tu directorio personal utilizando ~ como prefijo. Por ejemplo:
+
+~~~
+cd ~/documentos
+~~~
+
+---------------------
+
+**(g)** Comandos relacionados con el uso del FileSystem:
+
+* cd: Cambia el directorio actual. Ejemplo: cd /ruta/al/directorio.
+
+* umount: Desmonta un sistema de archivos. Ejemplo: umount /dev/sdX.
+
+* mkdir: Crea un nuevo directorio. Ejemplo: mkdir nuevo_directorio.
+
+* du: Muestra el uso de espacio de disco por archivos y directorios. Ejemplo: du -h.
+
+* rmdir: Elimina un directorio vacío. Ejemplo: rmdir viejo_directorio.
+
+* df: Muestra el uso del espacio en disco de todos los sistemas de archivos. Ejemplo: df -h.
+
+* mount: Monta un sistema de archivos. Ejemplo: mount /dev/sdX /punto/de/montaje.
+
+* ln: Crea enlaces entre archivos. El parámetro -s crea un enlace simbólico. Ejemplo: ln -s archivo.txt enlace.
+
+* ls: Lista archivos y directorios en el directorio actual. Ejemplo: ls -l.
+
+* pwd: Muestra la ruta del directorio actual.
+
+* cp: Copia archivos o directorios. Ejemplo: cp origen.txt destino.txt.
+
+* mv: Mueve o renombra archivos o directorios. Ejemplo: mv archivo.txt nuevo_nombre.txt.
 
 </details>
