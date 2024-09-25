@@ -1294,5 +1294,90 @@ Esto refleja:
 
 ## 🟣 14.
 
+Indique qué comando/s es necesario para realizar cada una de las acciones de la siguiente secuencia de pasos (considerando su orden de aparición):
+
+(a) Cree un directorio llamado logs en el directorio /tmp.
+
+(b) Copie todo el contenido del directorio /var/log en el directorio creado en el punto anterior.
+
+(c) Empaquete el directorio creado en 1, el archivo resultante se debe llamar "misLogs.tar".
+
+(d) Empaquete y comprima el directorio creado en 1, el archivo resultante se debe llamar "misLogs.tar.gz".
+
+(e) Copie los archivos creados en 3 y 4 al directorio de trabajo de su usuario.
+
+(f) Elimine el directorio creado en 1, logs.
+
+(g) Desempaquete los archivos creados en 3 y 4 en 2 directorios diferentes.
+
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+**(a)** Crear un directorio llamado logs en el directorio /tmp
+
+~~~
+mkdir /tmp/logs
+~~~
+
+---------------------
+
+(b) Copiar todo el contenido del directorio /var/log en el directorio creado en el punto anterior
+
+~~~
+cp -r /var/log/* /tmp/logs/
+~~~
+
+---------------------
+
+(c) Empaquetar el directorio creado en (a) en un archivo llamado "misLogs.tar"
+
+~~~
+tar -cf misLogs.tar -C /tmp logs
+~~~
+
+Nota: La opción -C cambia al directorio /tmp antes de empaquetar, así que el archivo resultante contiene solo el directorio logs.
+
+---------------------
+
+(d) Empaquetar y comprimir el directorio creado en (a) en un archivo llamado "misLogs.tar.gz"
+
+~~~
+tar -czf misLogs.tar.gz -C /tmp logs
+~~~
+
+La opción -z comprime el archivo usando gzip.
+
+---------------------
+
+(e) Copiar los archivos creados en (c) y (d) al directorio de trabajo de su usuario
+
+~~~
+cp misLogs.tar misLogs.tar.gz ~/
+~~~
+
+---------------------
+
+(f) Eliminar el directorio creado en (a), logs
+
+~~~
+rm -r /tmp/logs
+~~~
+
+Nota: Usa -r para eliminar el directorio y su contenido de forma recursiva.
+
+---------------------
+
+(g) Desempaquetar los archivos creados en (c) y (d) en dos directorios diferentes
+
+~~~
+mkdir ~/misLogs_tar
+mkdir ~/misLogs_tar_gz
+
+tar -xf ~/misLogs.tar -C ~/misLogs_tar/
+tar -xzf ~/misLogs.tar.gz -C ~/misLogs_tar_gz/
+~~~
+
+-x se usa para desempaquetar.
+-f especifica el archivo a desempaquetar.
+-z se usa solo para archivos comprimidos.
+
 </details>
