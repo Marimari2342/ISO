@@ -944,9 +944,112 @@ shutdown now
 ~~~
 
 </details>
-## 🟣 11.
+
+## 🟣 11. Indique comando a ejecutar para realizar las siguientes acciones:
+
+(a) Cree un directorio cuyo nombre sea su número de legajo e ingrese a él.
+
+(b) Cree un archivo utilizando el editor de textos vi, e introduzca su información personal: Nombre, Apellido, Número de alumno y dirección de correo electrónico. El archivo debe llamarse "LEAME".
+
+(c) Cambie los permisos del archivo LEAME, de manera que se puedan ver reflejados los siguientes permisos:
+
+Dueño: ningún permiso
+
+Grupo: permiso de ejecución
+
+Otros: todos los permisos
+
+(d) Vaya al directorio /etc y verifique su contenido. Cree un archivo dentro de su directorio personal cuyo nombre sea leame donde el contenido del mismo sea el listado de todos los archivos y directorios contenidos en /etc. ¿Cuál es la razón por la cuál puede crear este archivo si ya existe un archivo llamado "LEAME.en este directorio?.
+
+(e) ¿Qué comando utilizaría y de qué manera si tuviera que localizar un archivo dentro del filesystem? ¿Y si tuviera que localizar varios archivos con características similares? Explique el concepto teórico y ejemplifique.
+
+(f) Utilizando los conceptos aprendidos en el punto e), busque todos los archivos cuya extensión sea .so y almacene el resultado de esta búsqueda en un archivo dentro del directorio creado en a). El archivo deberá llamarse .ejercicio_f".
+
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+**(a)** Crear un directorio con el nro de legajo de nombre y entrar en él:
+
+~~~
+mkdir <nrolegajo>
+cd <nrolegajo>
+~~~
+
+---------------------
+
+**(b)** Crear un archivo usando vi y añadir información personal
+
+~~~
+vi LEAME
+~~~
+
+En el editor vi, presiona i para entrar en modo de inserción y escribe tu información personal:
+
+~~~
+Nombre: [Tu Nombre]
+Apellido: [Tu Apellido]
+Número de alumno: [Tu Número de Alumno]
+Dirección de correo electrónico: [Tu Correo Electrónico]
+~~~
+
+Luego, presiona Esc, escribe :wq y presiona Enter para guardar y salir.
+
+---------------------
+
+**(c)** Cambiar permisos del archivo LEAME
+
+~~~
+chmod 751 LEAME
+~~~
+
+Esto establece los permisos de la siguiente manera:
+
+Dueño: 0 (sin permisos)
+
+Grupo: 5 (lectura y ejecución)
+
+Otros: 7 (lectura, escritura y ejecución)
+
+---------------------
+
+**(d)** Verificar el contenido de /etc y crear un archivo en el directorio personal
+
+~~~
+cd /etc
+ls
+cd ~
+ls /etc > leame
+~~~
+
+Se puede crear el archivo leame en el directorio personal aunque ya exista un archivo llamado LEAME porque los sistemas de archivos en Linux son sensibles a mayúsculas y minúsculas. Por lo tanto, LEAME y leame son considerados archivos diferentes.
+
+---------------------
+
+**(e)** Para localizar un archivo específico en el filesystem, se usa el comando find:
+
+~~~
+find / -name "nombre_del_archivo"
+~~~
+
+Para localizar varios archivos con características similares, se puede usar comodines. Por ejemplo, si buscas todos los archivos .txt:
+
+~~~
+find / -name "*.txt"
+~~~
+
+find es un comando utilizado para buscar archivos en una jerarquía de directorios. Se puede buscar por nombre, tipo, tamaño, entre otros criterios.
+
+---------------------
+
+**(f)** Buscar archivos con extensión .so y almacenar el resultado
+
+~~~
+find / -name "*.so" > <numlegajo>/.ejercicio_f
+~~~
+
+Esto busca todos los archivos con extensión .so en el filesystem y guarda el resultado en un archivo llamado .ejercicio_f en el directorio que creaste.
+
 </details>
+
 ## 🟣 12.
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
 </details>
