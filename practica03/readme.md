@@ -1,6 +1,6 @@
 # Introducción a los Sistemas Operativos - Practica 3
 
-## 🟠 1. 
+## 🟠 1. Shell Scripting
 
 ¿Qué es el Shell Scripting? ¿A qué tipos de tareas están orientados los script? ¿Los scripts deben compilarse? ¿Por qué?
 
@@ -71,7 +71,7 @@ echo "Hola, $nombre"
 
 </details>
 
-## 🟠 3. 
+## 🟠 3. Practica
 
 Crear dentro del directorio personal del usuario logueado un directorio llamado practicashell-script y dentro de él un archivo llamado mostrar.sh cuyo contenido sea el siguiente:
 
@@ -306,7 +306,7 @@ echo "El directorio personal del usuario es: $HOME"
 
 </details>
 
-## 🟠 5. 
+## 🟠 5. Comando exit
 
 ¿Cual es la funcionalidad de comando exit? ¿Qué valores recibe como parámetro y cual es su significado?
 
