@@ -1377,7 +1377,9 @@ tar -xzf ~/misLogs.tar.gz -C ~/misLogs_tar_gz/
 ~~~
 
 -x se usa para desempaquetar.
+
 -f especifica el archivo a desempaquetar.
+
 -z se usa solo para archivos comprimidos.
 
 </details>
