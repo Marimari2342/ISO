@@ -1172,7 +1172,123 @@ cp -r $HOME/f* $HOME/ejercicio5/
 
 ## 🟣 13.
 
+Cree una estructura desde el directorio /home que incluya varios directorios, subdirectorios y archivos, según el esquema siguiente. Asuma que “usuario” indica cuál es su nombre de usuario. Además deberá tener en cuenta que dirX hace referencia a directorios y fX hace referencia a archivos:
+
+(a) Utilizando la estructura de directorios anteriormente creada, indique que comandos son necesarios para realizar las siguientes acciones:
+
+* Mueva el archivo "f3.al directorio de trabajo /home/usuario.
+
+* Copie el archivo "f4.en el directorio "dir11".
+
+* Haga los mismo que en el inciso anterior pero el archivo de destino, se debe llamar "f7".
+
+* Cree el directorio copia dentro del directorio usuario y copie en él, el contenido de "dir1".
+
+* Renombre el archivo "f1"por el nombre archivo y vea los permisos del mismo.
+
+* Cambie los permisos del archivo llamado archivo de manera de reflejar lo siguiente:
+
+Usuario: Permisos de lectura y escritura
+
+Grupo: Permisos de ejecución
+
+Otros: Todos los permisos
+
+* Renombre los archivos "f3 2 "f4"de manera que se llamen "f3.exe 2 "f4 exerespectivamente.
+
+* Utilizando un único comando cambie los permisos de los dos archivos renombrados en el inciso anterior, de manera de reflejar lo siguiente:
+
+Usuario: Ningún permiso
+
+Grupo: Permisos de escritura
+
+Otros: Permisos de escritura y ejecución
+
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+Estructura de Directorios --> Supongamos la siguiente estructura:
+
+~~~
+/home/usuario
+├── dir1
+│   ├── f1
+│   ├── f2
+│   └── f3
+├── dir11
+│   ├── f4
+│   └── f5
+└── dir2
+    └── f6
+~~~
+
+Comandos para las Acciones
+
+1. Mover el archivo "f3" al directorio de trabajo /home/usuario:
+
+~~~
+mv dir1/f3 /home/usuario/
+~~~
+
+2. Copiar el archivo "f4" al directorio "dir11":
+
+~~~
+cp dir11/f4 /home/usuario/dir11/
+~~~
+
+3. Copiar el archivo "f4" al directorio "dir11" y renombrarlo como "f7":
+
+~~~
+cp dir11/f4 /home/usuario/dir11/f7
+~~~
+
+4. Crear el directorio "copia" dentro del directorio usuario y copiar el contenido de "dir1":
+
+~~~
+mkdir /home/usuario/copia
+cp -r /home/usuario/dir1/* /home/usuario/copia/
+~~~
+
+5. Renombrar el archivo "f1" por "archivo" y ver los permisos:
+
+~~~
+mv dir1/f1 /home/usuario/archivo
+ls -l archivo
+~~~
+
+6. Cambiar los permisos del archivo llamado "archivo":
+
+~~~
+chmod 761 archivo
+~~~
+
+Esto refleja:
+
+* Usuario: lectura y escritura (rw-)
+
+* Grupo: ejecución (rwx)
+
+* Otros: todos los permisos (rwx)
+
+7. Renombrar los archivos "f3" y "f4" a "f3.exe" y "f4.exe" respectivamente:
+
+~~~
+mv dir1/f3 dir1/f3.exe
+mv dir11/f4 dir11/f4.exe
+~~~
+
+8. Cambiar los permisos de los dos archivos renombrados en un solo comando:
+
+~~~
+chmod 027 dir1/f3.exe dir11/f4.exe
+~~~
+
+Esto refleja:
+
+* Usuario: ningún permiso (---)
+
+* Grupo: permisos de escritura (--w)
+
+* Otros: permisos de escritura y ejecución (--wx)
 
 </details>
 
