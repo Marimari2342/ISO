@@ -1056,123 +1056,117 @@ Indique qué acción realiza cada uno de los comandos indicados a continuación 
 
 ![imagen](/recursos/image01.png)
 
+(a) Inicie 2 sesiones utilizando su nombre de usuario y contraseña. En una sesión vaya siguiendo paso a paso las órdenes que se encuentran escritas en el cuadro superior. En la otra sesión, cree utilizando algún editor de textos un archivo que se llame .ejercicio10_explicacion"dentro del directorio creado en el ejercicio 9.a) y, para cada una de las órdenes que ejecute en la otra sesión, realice una breve explicación de los resultados obtenidos.
+
+(b) Complete en el cuadro superior los comandos 19 y 20, de manera tal que realicen la siguiente acción: 
+
+* 19: Copiar el directorio iso y todo su contenido al directorio creado en el inciso 9.a).
+
+* 20: Copiar el resto de los archivos y directorios que se crearon en este ejercicio al directorio creado en el ejercicio 9.a).
+
+(c) Ejecute las órdenes 19 y 20 y comentelas en el archivo creado en el inciso a).
+
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
 
-* <code>mkdir i s o</code>
+**(a)** Abrir dos terminales y loguear con tu nombre de usuario y contraseña en ambas. Ejecutar órdenes en la primera sesión: A continuación, seguir los comandos.
 
-Acción: Intenta crear tres directorios llamados i, s y o.
+Crear el archivo .ejercicio10_explicacion en la segunda sesión usando un editor de textos (como nano o vi) para crear el archivo:
 
-Resultado: Si no hay errores de permisos, se crean los tres directorios.
+~~~
+nano $HOME/ejercicio5/.ejercicio10_explicacion
+~~~
 
-* <code>cd ./i s o ; ps > f0</code>
+~~~
+vi $HOME/ejercicio5/.ejercicio10_explicacion
+~~~
 
-Acción: Intenta cambiar al directorio i (el espacio en blanco es un error, debería ser cd iso).
+Documentar cada comando.
 
-Resultado: Si el directorio iso no existe, se generará un error. Si se corrige a cd iso, el comando ps se ejecutará y su salida se redirigirá al archivo f0.
+---------------------
 
-* <code>ls > f1</code>
+**(b)** Completar comandos 19 y 20
 
-Acción: Lista los archivos y directorios en el directorio actual y redirige la salida al archivo f1.
+Para copiar el directorio iso y los archivos generados en el ejercicio:
 
-Resultado: Si se tiene permiso de escritura en el directorio, se crea (o sobreescribe) f1 con el listado.
+* Copiar el directorio iso:
 
-* <code>cd /</code>
+~~~
+cp -r $HOME/iso $HOME/ejercicio5/
+~~~
 
-Acción: Cambia al directorio raíz /.
+* Copiar el resto de los archivos y directorios:
 
-Resultado: Cambia exitosamente al directorio raíz.
+~~~
+cp -r $HOME/f* $HOME/ejercicio5/
+~~~
 
-* <code>echo $HOME</code>
+---------------------
 
-Acción: Muestra la ruta del directorio home del usuario.
+**(c)**
 
-Resultado: Imprime el valor de la variable $HOME, que debería ser algo como /home/usuario.
+~~~
+# .ejercicio10_explicacion
 
-* <code>ls -l $> $HOME/iso/ls</code>
+1. `mkdir iso`
+   - Crea un directorio llamado "iso". Si no hay errores, se crea exitosamente.
 
-Acción: Aquí hay un error de sintaxis. Debe ser ls -l > $HOME/iso/ls.
+2. `cd ./iso`
+   - Cambia al directorio "iso". Si no existe, se genera un error.
 
-Resultado: Si se corrige, lista los detalles de los archivos en el directorio actual y los guarda en $HOME/iso/ls.
+3. `ps > f0`
+   - Captura la lista de procesos activos y la redirige al archivo "f0".
 
-* <code>cd $HOME; mkdir f2</code>
+4. `ls > f1`
+   - Lista el contenido del directorio actual y lo guarda en "f1".
 
-Acción: Cambia al directorio home del usuario y crea un directorio llamado f2.
+5. `cd /`
+   - Cambia al directorio raíz "/". Esto se realiza correctamente.
 
-Resultado: Se crea el directorio f2 si no existe y el usuario tiene permiso.
+6. `echo $HOME`
+   - Muestra el directorio home del usuario. Imprime algo como "/home/usuario".
 
-* <code>ls -ld f2</code>
+7. `ls -l > $HOME/iso/ls`
+   - Lista los archivos en formato detallado y guarda el resultado en "$HOME/iso/ls".
 
-Acción: Muestra los detalles del directorio f2.
+8. `cd $HOME; mkdir f2`
+   - Cambia al directorio home y crea un directorio "f2".
 
-Resultado: Muestra información sobre f2, siempre que exista.
+9. `ls -ld f2`
+   - Muestra información sobre el directorio "f2".
 
-* <code>chmod 341 f2</code>
+10. `chmod 341 f2`
+    - Cambia los permisos de "f2". Es posible que falle si no tienes permisos.
 
-Acción: Cambia los permisos del directorio f2.
+11. `touch dir`
+    - Crea un archivo llamado "dir". Si ya existe, actualiza su fecha de modificación.
 
-Resultado: Cambia los permisos a: dueño sin permisos, grupo con permiso de lectura y ejecución, y otros con todos los permisos. Como el usuario no es root, es posible que no tenga permisos para modificar.
+12. `cd f2`
+    - Cambia al directorio "f2".
 
-* <code>touch dir</code>
+13. `cd ~/iso`
+    - Cambia al directorio "iso" en el home del usuario.
 
-Acción: Crea un archivo llamado dir o actualiza su fecha de modificación si ya existe.
+14. `pwd > f3`
+    - Guarda la ruta del directorio actual en "f3".
 
-Resultado: Se crea el archivo dir en el directorio actual.
+15. `ps | grep 'ps' | wc -l >> ../f2/f3`
+    - Cuenta cuántos procesos "ps" están corriendo y agrega el número a "f3".
 
-* <code>cd f2</code>
+16. `chmod 700 ../f2`
+    - Cambia los permisos de "f2" a sólo lectura, escritura y ejecución para el dueño.
 
-Acción: Cambia al directorio f2.
+17. `cd ..`
+    - Vuelve al directorio anterior.
 
-Resultado: Si f2 existe, se cambia a ese directorio.
+18. `find . -name etc/passwd`
+    - Busca "etc/passwd" en el directorio actual (no encontrará nada por la ruta incorrecta).
 
-* <code>cd ~/iso</code>
+19. `find / -name passwd`
+    - Busca el archivo "passwd" en todo el sistema.
 
-Acción: Cambia al directorio iso dentro del directorio home del usuario.
-
-Resultado: Si el directorio iso existe, se cambia a ese directorio.
-
-* <code>pwd > f3</code>
-
-Acción: Muestra la ruta completa del directorio actual y la redirige al archivo f3.
-
-Resultado: Se crea o sobrescribe el archivo f3 con la ruta del directorio actual.
-
-* <code>ps | grep 'ps' | wc -l >> ../f2/f3</code>
-
-Acción: Cuenta el número de procesos relacionados con ps y agrega el resultado al archivo f3 en el directorio f2.
-
-Resultado: Si se tiene permiso, se agrega el conteo al final de f3.
-
-* <code>chmod 700 ../f2</code>
-
-Acción: Cambia los permisos del directorio f2 a solo lectura, escritura y ejecución para el dueño.
-
-Resultado: Es posible que no funcione porque el usuario no es root.
-
-<code>cd ..</code>
-
-Acción: Regresa al directorio anterior.
-
-Resultado: Se cambia de directorio correctamente.
-
-* <code>find . -name etc/passwd</code>
-
-Acción: Intenta buscar un archivo llamado etc/passwd en el directorio actual.
-
-Resultado: No encontrará nada, ya que está buscando un nombre de archivo con una ruta incorrecta.
-
-* <code>find / -name etc/passwd</code>
-
-Acción: Busca un archivo llamado etc/passwd en todo el sistema.
-
-Resultado: No encontrará nada. Debería ser find / -name passwd.
-
-<code>mkdir ejercicio5</code>
-
-Acción: Crea un directorio llamado ejercicio5.
-
-Resultado: Se crea el directorio si se tiene permiso.
-
-En definitiva, muchos de los comandos dependen de la existencia de directorios y de los permisos del usuario. Si el usuario no tiene permisos suficientes, algunos comandos pueden fallar. Además, hay errores de sintaxis que pueden causar problemas en la ejecución.
+20. `mkdir ejercicio5`
+    - Crea un nuevo directorio llamado "ejercicio5".
+~~~
 
 </details>
 
