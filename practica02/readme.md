@@ -1050,12 +1050,138 @@ Esto busca todos los archivos con extensión .so en el filesystem y guarda el re
 
 </details>
 
-## 🟣 12.
+## 🟣 12. 
+
+Indique qué acción realiza cada uno de los comandos indicados a continuación considerando su orden. Suponga que se ejecutan desde un usuario que no es root ni pertenece al grupo de root. (Asuma que se encuentra posicionado en el directorio de trabajo del usuario con el que se logueó). En caso de no poder ejecutarse el comando indique la razón:
+
+![imagen](/recursos/image01.png)
+
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+* <code>mkdir i s o</code>
+
+Acción: Intenta crear tres directorios llamados i, s y o.
+
+Resultado: Si no hay errores de permisos, se crean los tres directorios.
+
+* <code>cd ./i s o ; ps > f0</code>
+
+Acción: Intenta cambiar al directorio i (el espacio en blanco es un error, debería ser cd iso).
+
+Resultado: Si el directorio iso no existe, se generará un error. Si se corrige a cd iso, el comando ps se ejecutará y su salida se redirigirá al archivo f0.
+
+* <code>ls > f1</code>
+
+Acción: Lista los archivos y directorios en el directorio actual y redirige la salida al archivo f1.
+
+Resultado: Si se tiene permiso de escritura en el directorio, se crea (o sobreescribe) f1 con el listado.
+
+* <code>cd /</code>
+
+Acción: Cambia al directorio raíz /.
+
+Resultado: Cambia exitosamente al directorio raíz.
+
+* <code>echo $HOME</code>
+
+Acción: Muestra la ruta del directorio home del usuario.
+
+Resultado: Imprime el valor de la variable $HOME, que debería ser algo como /home/usuario.
+
+* <code>ls -l $> $HOME/iso/ls</code>
+
+Acción: Aquí hay un error de sintaxis. Debe ser ls -l > $HOME/iso/ls.
+
+Resultado: Si se corrige, lista los detalles de los archivos en el directorio actual y los guarda en $HOME/iso/ls.
+
+* <code>cd $HOME; mkdir f2</code>
+
+Acción: Cambia al directorio home del usuario y crea un directorio llamado f2.
+
+Resultado: Se crea el directorio f2 si no existe y el usuario tiene permiso.
+
+* <code>ls -ld f2</code>
+
+Acción: Muestra los detalles del directorio f2.
+
+Resultado: Muestra información sobre f2, siempre que exista.
+
+* <code>chmod 341 f2</code>
+
+Acción: Cambia los permisos del directorio f2.
+
+Resultado: Cambia los permisos a: dueño sin permisos, grupo con permiso de lectura y ejecución, y otros con todos los permisos. Como el usuario no es root, es posible que no tenga permisos para modificar.
+
+* <code>touch dir</code>
+
+Acción: Crea un archivo llamado dir o actualiza su fecha de modificación si ya existe.
+
+Resultado: Se crea el archivo dir en el directorio actual.
+
+* <code>cd f2</code>
+
+Acción: Cambia al directorio f2.
+
+Resultado: Si f2 existe, se cambia a ese directorio.
+
+* <code>cd ~/iso</code>
+
+Acción: Cambia al directorio iso dentro del directorio home del usuario.
+
+Resultado: Si el directorio iso existe, se cambia a ese directorio.
+
+* <code>pwd > f3</code>
+
+Acción: Muestra la ruta completa del directorio actual y la redirige al archivo f3.
+
+Resultado: Se crea o sobrescribe el archivo f3 con la ruta del directorio actual.
+
+* <code>ps | grep 'ps' | wc -l >> ../f2/f3</code>
+
+Acción: Cuenta el número de procesos relacionados con ps y agrega el resultado al archivo f3 en el directorio f2.
+
+Resultado: Si se tiene permiso, se agrega el conteo al final de f3.
+
+* <code>chmod 700 ../f2</code>
+
+Acción: Cambia los permisos del directorio f2 a solo lectura, escritura y ejecución para el dueño.
+
+Resultado: Es posible que no funcione porque el usuario no es root.
+
+<code>cd ..</code>
+
+Acción: Regresa al directorio anterior.
+
+Resultado: Se cambia de directorio correctamente.
+
+* <code>find . -name etc/passwd</code>
+
+Acción: Intenta buscar un archivo llamado etc/passwd en el directorio actual.
+
+Resultado: No encontrará nada, ya que está buscando un nombre de archivo con una ruta incorrecta.
+
+* <code>find / -name etc/passwd</code>
+
+Acción: Busca un archivo llamado etc/passwd en todo el sistema.
+
+Resultado: No encontrará nada. Debería ser find / -name passwd.
+
+<code>mkdir ejercicio5</code>
+
+Acción: Crea un directorio llamado ejercicio5.
+
+Resultado: Se crea el directorio si se tiene permiso.
+
+En definitiva, muchos de los comandos dependen de la existencia de directorios y de los permisos del usuario. Si el usuario no tiene permisos suficientes, algunos comandos pueden fallar. Además, hay errores de sintaxis que pueden causar problemas en la ejecución.
+
 </details>
+
 ## 🟣 13.
+
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
+
 </details>
+
 ## 🟣 14.
 
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
