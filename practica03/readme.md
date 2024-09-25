@@ -34,4 +34,39 @@ Los scripts no necesitan compilarse, ya que son interpretados en tiempo de ejecu
 
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
 
+* echo: Se usa para imprimir texto o variables en la salida estándar (normalmente, la pantalla). Ejemplo:
+
+~~~
+echo "Hola, Mundo"
+~~~
+
+* read: Se usa para leer la entrada del usuario. Ejemplo:
+
+~~~
+read nombre
+echo "Tu nombre es $nombre"
+~~~
+
+---------------------
+
+**(a)** En los scripts de shell, los comentarios se indican con el carácter #. Todo lo que sigue en la línea después de este símbolo será ignorado por el intérprete.
+
+~~~
+# Esto es un comentario
+~~~
+
+---------------------
+
+**(b)** Las variables se declaran simplemente asignándoles un valor sin necesidad de un tipo de datos explícito.
+
+~~~
+nombre="Juan"
+~~~
+
+Se hace referencia a las variables anteponiendo el signo $ al nombre de la variable.
+
+~~~
+echo "Hola, $nombre"
+~~~
+
 </details>
