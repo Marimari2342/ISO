@@ -686,7 +686,7 @@ wc archivo.txt
 </details>
 
 
-## 🟣 8. 
+## 🟣 8. Comandos varios
 
 Indique qué acción realiza cada uno de los comandos indicados a continuación considerando su orden. Suponga que se ejecutan desde un usuario que no es root ni pertenece al grupo de root. (Asuma que se encuentra posicionado en el directorio de trabajo del usuario con el que se logueó). En caso de no poder ejecutarse el comando, indique la razón:
 
@@ -1050,7 +1050,7 @@ Esto busca todos los archivos con extensión .so en el filesystem y guarda el re
 
 </details>
 
-## 🟣 12. 
+## 🟣 12. Comandos
 
 Indique qué acción realiza cada uno de los comandos indicados a continuación considerando su orden. Suponga que se ejecutan desde un usuario que no es root ni pertenece al grupo de root. (Asuma que se encuentra posicionado en el directorio de trabajo del usuario con el que se logueó). En caso de no poder ejecutarse el comando indique la razón:
 
@@ -1170,7 +1170,7 @@ cp -r $HOME/f* $HOME/ejercicio5/
 
 </details>
 
-## 🟣 13.
+## 🟣 13. Ejercicio de practica
 
 Cree una estructura desde el directorio /home que incluya varios directorios, subdirectorios y archivos, según el esquema siguiente. Asuma que “usuario” indica cuál es su nombre de usuario. Además deberá tener en cuenta que dirX hace referencia a directorios y fX hace referencia a archivos:
 
@@ -1292,7 +1292,7 @@ Esto refleja:
 
 </details>
 
-## 🟣 14.
+## 🟣 14. Comandos varios
 
 Indique qué comando/s es necesario para realizar cada una de las acciones de la siguiente secuencia de pasos (considerando su orden de aparición):
 
