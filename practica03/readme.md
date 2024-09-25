@@ -184,6 +184,8 @@ echo "Su usuario es: `whoami`"
 
 El comando whoami se ejecuta, y su salida (el nombre de usuario del sistema) se inserta en la línea donde aparece. En otras palabras, el resultado del comando whoami reemplaza el texto dentro de los backticks.
 
+---------------------
+
 **(e)** Modificar el script para que, además de los datos anteriores, muestre el directorio personal, el contenido de un directorio en particular, y el espacio libre en disco. Además, voy a pedir otros datos por teclado.
 
 Modifica el archivo mostrar.sh con el siguiente contenido:
@@ -235,5 +237,79 @@ Para ejecutarlo: después de guardar el archivo, puedes ejecutarlo de la misma m
 ~~~
 
 El script pedirá el nombre, apellido, color favorito y el directorio a listar, y mostrará toda la información solicitada.
+
+</details>
+
+## 🟠 4. Parametrización: 
+
+¿Cómo se acceden a los parámetros enviados al script al momento de su invocación? ¿Qué información contienen las variables $#, $*, $? Y $HOME dentro de un script?
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+En shell scripting, es posible pasar parámetros al script al momento de invocarlo desde la línea de comandos. Estos parámetros se acceden utilizando las siguientes variables especiales:
+
+* $1, $2, ..., $n: Representan los parámetros posicionales que se pasan al script. $1 es el primer parámetro, $2 es el segundo, y así sucesivamente. Por ejemplo:
+
+~~~
+#!/bin/bash
+echo "El primer parámetro es: $1"
+echo "El segundo parámetro es: $2"
+~~~
+
+Si ejecuto ./script.sh hola mundo, la salida será:
+
+~~~
+El primer parámetro es: hola
+El segundo parámetro es: mundo
+~~~
+
+Variables especiales en los scripts:
+
+* $#: Contiene el número total de parámetros pasados al script. Ejemplo:
+
+~~~
+echo "Número de parámetros: $#"
+~~~
+
+Si ejecutas ./script.sh hola mundo, la salida será:
+
+~~~
+Número de parámetros: 2
+~~~
+
+* $*: Contiene todos los parámetros pasados al script como una sola cadena, separados por espacios.
+
+Ejemplo:
+
+~~~
+echo "Todos los parámetros: $*"
+~~~
+
+Si ejecutas ./script.sh hola mundo, la salida será:
+
+~~~
+Todos los parámetros: hola mundo
+~~~
+
+* $?: Almacena el valor de retorno del último comando ejecutado. Un valor de 0 indica que el comando anterior se ejecutó correctamente; cualquier otro valor indica un error. Ejemplo:
+
+~~~
+ls /home
+echo "El código de salida del último comando es: $?"
+~~~
+
+* $HOME: Contiene la ruta del directorio personal del usuario que ejecuta el script. Es una variable de entorno predefinida. Ejemplo:
+
+~~~
+echo "El directorio personal del usuario es: $HOME"
+~~~
+
+</details>
+
+## 🟠 5. 
+
+¿Cual es la funcionalidad de comando exit? ¿Qué valores recibe como parámetro y cual es su significado?
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
 
 </details>
