@@ -312,4 +312,33 @@ echo "El directorio personal del usuario es: $HOME"
 
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
 
+El comando exit se utiliza para finalizar la ejecución de un script o un proceso en shell. Este comando puede recibir un valor de código de salida (un número), que indica el estado de la terminación del script.
+
+Valores que recibe como parámetro y su significado:
+
+* exit 0: Indica una salida exitosa. El valor 0 significa que el script o proceso ha terminado correctamente.
+
+* exit N: Donde N es cualquier número distinto de 0, indica que el script terminó con un error o fallo. Los valores de error típicos pueden ser:
+
+1: Error general.
+
+2: Uso incorrecto de comandos.
+
+Otros valores pueden depender del script o del sistema operativo.
+
+Ejemplo:
+
+~~~
+#!/bin/bash
+if [ "$1" == "" ]; then
+  echo "No se ha proporcionado un parámetro"
+  exit 1  # Salida con código de error
+else
+  echo "Parámetro recibido: $1"
+  exit 0  # Salida exitosa
+fi
+~~~
+
+En este ejemplo, si no se pasa un parámetro al script, termina con un código de error 1. Si recibe un parámetro, termina correctamente con exit 0.
+
 </details>
