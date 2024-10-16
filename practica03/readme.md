@@ -216,12 +216,6 @@ echo "Espacio libre en disco:"
 df -h
 ~~~
 
-Para ejecutar:
-
-~~~
-./practicashell-script/mostrar.sh
-~~~
-
 </details>
 
 ## 🟠 4. Parametrización: 
