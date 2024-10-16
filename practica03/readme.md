@@ -281,6 +281,7 @@ echo "El código de salida del último comando es: $?"
 ~~~
 echo "El directorio personal del usuario es: $HOME"
 ~~~
+---------------------
 
 </details>
 
@@ -318,5 +319,104 @@ fi
 ~~~
 
 En este ejemplo, si no se pasa un parámetro al script, termina con un código de error 1. Si recibe un parámetro, termina correctamente con exit 0.
+
+---------------------
+
+</details>
+
+## 🟠 6. Comando expr
+
+El comando expr permite la evaluación de expresiones. Su sintaxis es: expr arg1 op arg2, donde arg1 y arg2 representan argumentos y op la operación de la expresión. Investigar que tipo de operaciones se pueden utilizar.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+* Operaciones aritméticas:
+
+~~~
+#!/bin/bash
+
+# Suma: +
+expr 5 + 3
+
+# Resta: -
+expr 5 - 2
+
+# Multiplicación: * (Se debe escapar el asterisco con \ o usar comillas dobles)
+expr 5 \* 3
+
+# División: /
+expr 10 / 2
+
+# Módulo: % (devuelve el resto de una división)
+expr 10 % 3  # Resultado: 1
+~~~
+
+* Operaciones de comparación: estas operaciones comparan dos números y devuelven 1 si la condición es verdadera, y 0 si es falsa.
+
+~~~
+#!/bin/bash
+
+# Igual a: =
+expr 5 = 5   # Resultado: 1
+
+# No igual a: !=
+expr 5 != 3  # Resultado: 1
+
+# Mayor que: >
+expr 5 \> 3  # Resultado: 1
+
+# Mayor o igual que: >=
+expr 5 \>= 5  # Resultado: 1
+
+#Menor que: <
+expr 3 \< 5  # Resultado: 1
+
+# Menor o igual que: <=
+expr 3 \<= 5  # Resultado: 1
+~~~
+
+
+3. Operaciones lógicas:
+
+~~~
+#!/bin/bash
+
+# AND lógico: &
+expr 1 \& 0  # Resultado: 0
+
+# OR lógico: |
+expr 1 \| 0  # Resultado: 1
+~~~
+
+4. Manipulación de cadenas:
+
+~~~
+#!/bin/bash
+
+# Concatenación:
+expr "Hello" : '\(.*\)' "World"  # Concatenación simple
+
+# Longitud de una cadena:
+expr length "cadena"  # Resultado: 6
+
+# Substracción de parte de una cadena:
+expr substr "cadena" 1 3  # Resultado: "cad"
+~~~
+
+5. Expresiones regulares: puedes usar expr para hacer coincidencias simples con expresiones regulares.
+
+~~~
+#!/bin/bash
+
+# Coincidencia de patrón:
+expr "cadena" : 'ca.*'  # Resultado: 6 (si coincide, devuelve el número de caracteres)
+
+# Ejemplo combinado:
+expr 5 + 3 \* 2  # Resultado: 11 (multiplicación se evalúa primero)
+~~~
+
+Importante: los operadores de expr deben estar separados por espacios y, en muchos casos, algunos caracteres como *, <, >, &, y | deben ser escapados con \ o rodeados por comillas dobles para evitar que el shell los interprete antes de que expr los procese.
+
+---------------------
 
 </details>
