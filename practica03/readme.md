@@ -220,7 +220,7 @@ df -h
 
 ## 🟠 4. Parametrización: 
 
-¿Cómo se acceden a los parámetros enviados al script al momento de su invocación? ¿Qué información contienen las variables  $ \# , $*, $? Y $HOME dentro de un script?
+¿Cómo se acceden a los parámetros enviados al script al momento de su invocación? ¿Qué información contienen las variables  $ \# , $ *, $ ? Y $HOME dentro de un script?
 
 <details><summary> <code> Respuesta 🖱 </code></summary><br>
 
