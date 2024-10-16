@@ -161,17 +161,17 @@ chmod +x ~/practicashell-script/mostrar.sh
 
 ~~~
 Introduzca su nombre y apellido:
-[Input del usuario: Juan Pérez]
+[Input del usuario: Marianela Rojas]
 
 Fecha y hora actual:
 Tue Sep 25 10:45:23 UTC 2024
 
 Su apellido y nombre es:
-Pérez Juan
+Rojas Marianela
 
-Su usuario es: juanperez
+Su usuario es: marimari
 
-Su directorio actual es: /home/juanperez
+Su directorio actual es: /home/marimari
 ~~~
 
 ---------------------
@@ -191,8 +191,6 @@ El comando whoami se ejecuta, y su salida (el nombre de usuario del sistema) se 
 Modifica el archivo mostrar.sh con el siguiente contenido:
 
 ~~~
-bash
-Copiar código
 #!/bin/bash
 # Este script solicita información y muestra detalles del sistema
 echo "Introduzca su nombre y apellido:"
