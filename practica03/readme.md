@@ -405,7 +405,7 @@ expr substr "cadena" 1 3  # Resultado: "cad"
 
 5. Expresiones regulares: puedes usar expr para hacer coincidencias simples con expresiones regulares.
 
-~~~```bash
+~~~```sh
 #!/bin/bash
 
 # Coincidencia de patrón:
