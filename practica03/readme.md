@@ -405,7 +405,7 @@ expr substr "cadena" 1 3  # Resultado: "cad"
 
 5. Expresiones regulares: puedes usar expr para hacer coincidencias simples con expresiones regulares.
 
-~~~```sh
+```sh
 #!/bin/bash
 
 # Coincidencia de patrón:
@@ -413,7 +413,7 @@ expr "cadena" : 'ca.*'  # Resultado: 6 (si coincide, devuelve el número de cara
 
 # Ejemplo combinado:
 expr 5 + 3 \* 2  # Resultado: 11 (multiplicación se evalúa primero)
-~~~
+```
 
 Importante: los operadores de expr deben estar separados por espacios y, en muchos casos, algunos caracteres como *, <, >, &, y | deben ser escapados con \ o rodeados por comillas dobles para evitar que el shell los interprete antes de que expr los procese.
 
