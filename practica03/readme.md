@@ -188,19 +188,15 @@ El comando whoami se ejecuta, y su salida (el nombre de usuario del sistema) se 
 
 **(e)** Modificar el script para que, además de los datos anteriores, muestre el directorio personal, el contenido de un directorio en particular, y el espacio libre en disco. Además, voy a pedir otros datos por teclado.
 
-Modifica el archivo mostrar.sh con el siguiente contenido:
-
 ~~~
 #!/bin/bash
 # Este script solicita información y muestra detalles del sistema
 echo "Introduzca su nombre y apellido:"
 read nombre apellido
 
+# Le pedimos al usuario que introduzca un directorio para listar su contenido.
 echo "Introduzca su directorio a listar (ejemplo: /home):"
 read directorio
-
-echo "Introduzca su color favorito:"
-read color
 
 echo "Fecha y hora actual:"
 date
@@ -208,33 +204,23 @@ date
 echo "Su apellido y nombre es:"
 echo "$apellido $nombre"
 
-echo "Su color favorito es: $color"
-
 echo "Su usuario es: `whoami`"
 echo "Su directorio actual es: `pwd`"
 echo "Su directorio personal es: $HOME"
 echo "El contenido del directorio $directorio es:"
+# Muestra el contenido del directorio proporcionado por el usuario.
 ls "$directorio"
 
+# Muestra el espacio libre en el sistema de archivos.
 echo "Espacio libre en disco:"
 df -h
 ~~~
 
-Explicación de los nuevos comandos:
-
-* read directorio: Le pedimos al usuario que introduzca un directorio para listar su contenido.
-
-* ls "$directorio": Muestra el contenido del directorio proporcionado por el usuario.
-
-* df -h: Muestra el espacio libre en el sistema de archivos en formato legible para humanos.
-
-Para ejecutarlo: después de guardar el archivo, puedes ejecutarlo de la misma manera que antes.
+Para ejecutar:
 
 ~~~
 ./practicashell-script/mostrar.sh
 ~~~
-
-El script pedirá el nombre, apellido, color favorito y el directorio a listar, y mostrará toda la información solicitada.
 
 </details>
 
