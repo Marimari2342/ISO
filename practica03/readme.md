@@ -1158,7 +1158,7 @@ le explica al usuario como usar el script. El <code>$0</code> nos indica el nomb
 ```sh
 Error: Debes ingresar exactamente 2 números como parámetros.
 Uso: ./punto12.sh num1 num2
-``
+```
 
 ---------------------
 
