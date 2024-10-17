@@ -419,3 +419,143 @@ Importante: los operadores de expr deben estar separados por espacios y, en much
 ---------------------
 
 </details>
+
+## 🟠 7. Comando test expresión
+
+El comando “test expresión” permite evaluar expresiones y generar un valor de retorno, true o false. Este comando puede ser reemplazado por el uso de corchetes de la siguiente manera [ expresión ]. Investigar que tipo de expresiones pueden ser usadas con el comando test. Tenga en cuenta operaciones para: evaluación de archivos, evaluación de cadenas de caracteres y evaluaciones numéricas.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+El comando test en Linux/Unix permite evaluar expresiones y devuelve un valor de retorno: true (0) si la expresión es cierta o false (1) si es falsa. Además, se puede usar su forma abreviada usando corchetes ([ expresión ]). Este comando es comúnmente utilizado en scripts de shell para realizar comprobaciones sobre archivos, cadenas y números.
+
+Diferentes tipos de evaluaciones que puedes realizar con test.
+
+1. Evaluación de archivos: el comando test permite verificar varias condiciones sobre archivos y directorios. Aquí están las principales opciones:
+
+```sh
+# Existe el archivo:
+test -e archivo
+[ -e archivo ]
+
+# Es un archivo regular:
+test -f archivo
+[ -f archivo ]
+
+# Es un directorio:
+test -d directorio
+[ -d directorio ]
+
+# Archivo no está vacío (tiene un tamaño mayor a 0):
+test -s archivo
+[ -s archivo ]
+
+# Archivo es ejecutable:
+test -x archivo
+[ -x archivo ]
+
+# Archivo tiene permiso de lectura:
+test -r archivo
+[ -r archivo ]
+
+# Archivo tiene permiso de escritura:
+test -w archivo
+[ -w archivo ]
+
+# Archivo especial de bloque (dispositivos como discos):
+test -b archivo
+[ -b archivo ]
+
+# Archivo especial de carácter (dispositivos como terminales o impresoras):
+test -c archivo
+[ -c archivo ]
+
+# Archivo es un enlace simbólico:
+test -L archivo
+[ -L archivo ]
+```
+
+2. Evaluación de cadenas de caracteres: se pueden usar expresiones con test o [ ] para evaluar cadenas de texto, como comprobar si están vacías, comparar o comprobar si dos cadenas son iguales.
+
+```sh
+# Longitud de cadena mayor a 0 (la cadena no está vacía):
+test -n "cadena"
+[ -n "cadena" ]
+
+# Longitud de cadena es 0 (la cadena está vacía):
+test -z "cadena"
+[ -z "cadena" ]
+
+# Cadenas son iguales:
+test "cadena1" = "cadena2"
+[ "cadena1" = "cadena2" ]
+
+# Cadenas son diferentes:
+test "cadena1" != "cadena2"
+[ "cadena1" != "cadena2" ]
+```
+
+3. Evaluación numérica: el comando test permite comparar números enteros para comprobar condiciones como igualdad, mayor o menor que, entre otros.
+
+```sh
+# Igualdad numérica:
+test 5 -eq 5
+[ 5 -eq 5 ]
+
+# Diferencia numérica:
+test 5 -ne 3
+[ 5 -ne 3 ]
+
+# Mayor que:
+test 5 -gt 3
+[ 5 -gt 3 ]
+
+# Menor que:
+test 3 -lt 5
+[ 3 -lt 5 ]
+
+# Mayor o igual que:
+test 5 -ge 5
+[ 5 -ge 5 ]
+
+# Menor o igual que:
+test 3 -le 5
+[ 3 -le 5 ]
+```
+
+4. Combinaciones lógicas: puedes combinar varias expresiones con operadores lógicos como AND y OR:
+
+```sh
+# AND lógico (ambas condiciones deben ser verdaderas):
+test -f archivo1 -a -f archivo2
+[ -f archivo1 -a -f archivo2 ]
+
+# OR lógico (una de las condiciones debe ser verdadera):
+test -f archivo1 -o -f archivo2
+[ -f archivo1 -o -f archivo2 ]
+
+# Ejemplos: 
+
+# 1. Verificar si un archivo existe y es un archivo regular:
+
+if [ -e archivo -a -f archivo ]; then
+  echo "El archivo existe y es un archivo regular."
+fi
+
+# 2. Comparar dos números:
+
+if [ 5 -gt 3 ]; then
+  echo "5 es mayor que 3."
+fi
+
+# 3. Verificar si una cadena no está vacía:
+
+if [ -n "$cadena" ]; then
+  echo "La cadena no está vacía."
+fi
+```
+
+Estas evaluaciones son comunes en scripts de shell para verificar condiciones antes de ejecutar comandos o tomar decisiones lógicas.
+
+---------------------
+
+</details>
