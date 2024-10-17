@@ -723,7 +723,7 @@ Estas estructuras de control son fundamentales en Shell Scripting y permiten con
 
 </details>
 
-## 🟠 8. Sentencias break y continue
+## 🟠 9. Sentencias break y continue
 
 ¿Qué acciones realizan las sentencias break y continue dentro de un bucle? ¿Qué parámetros} reciben?
 
@@ -826,6 +826,106 @@ done
 i: 1, j: 1
 i: 2, j: 1
 i: 3, j: 1
+```
+
+---------------------
+
+</details>
+
+## 🟠 10. Variables
+
+¿Qué tipo de variables existen? ¿Es shell script fuertemente tipado? ¿Se pueden definir
+arreglos? ¿Cómo?
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+* ***Tipos de Variables en Shell Script***
+
+En Shell Script, las variables no tienen tipos de datos explícitos como en lenguajes de programación fuertemente tipados (como Java o C). Todas las variables son tratadas como cadenas de texto por defecto, aunque se pueden manipular para que se comporten como números enteros en operaciones aritméticas.
+
+Tipos de variables más comunes:
+
+```sh
+#!/bin/bash
+
+# Variables de usuario: Definidas por el usuario en un script o en la terminal. 
+# No requieren declaración de tipo.
+nombre="Carlos"
+edad=25
+
+# Variables de entorno: Variables que están disponibles en todo el entorno del sistema operativo.
+# Accesibles por cualquier script o aplicación.
+export PATH="/usr/local/bin:$PATH"
+
+# Variables posicionales: Son argumentos que se pasan a un script y se acceden con $1, $2, etc. 
+# $0 es el nombre del script.
+./mi_script.sh arg1 arg2
+
+# Variables especiales: Variables predefinidas en el shell, como:
+$?: Código de retorno del último comando ejecutado.
+$$: PID del proceso actual.
+$#: Número de argumentos pasados al script.
+$@ o $*: Todos los argumentos pasados al script.
+```
+
+---------------------
+
+* ***¿Es Shell Script Fuertemente Tipado?***
+
+No, Shell Script no es fuertemente tipado. En Shell Script, no se declara el tipo de las variables, y pueden contener cualquier tipo de dato sin especificar si son números, cadenas de texto, etc. Esto significa que puedes asignar y reasignar distintos tipos de valores a la misma variable sin necesidad de conversión explícita.
+
+```sh
+variable="texto"  # La variable es una cadena de texto
+variable=123      # Ahora es un número (aunque sigue siendo tratada como cadena)
+```
+
+Aunque no es estrictamente tipado, puedes realizar operaciones aritméticas con variables que contienen números utilizando comandos como expr o let, o con la expansión aritmética $(( )).
+
+---------------------
+
+* ***¿Se Pueden Definir Arreglos? ¿Cómo?***
+
+Sí, en Shell Script puedes definir arreglos (arrays). Los arreglos en Bash son unidimensionales y sus elementos se pueden acceder por índices numéricos.
+
+```sh
+#!/bin/bash
+
+# Los arreglos en Bash se definen usando paréntesis y los elementos se separan por espacios.
+mi_array=(elemento1 elemento2 elemento3)
+
+# Los elementos de un array se acceden utilizando el índice correspondiente (que comienza en 0).
+echo ${mi_array[0]}  # Imprime "elemento1"
+echo ${mi_array[1]}  # Imprime "elemento2"
+
+# Puedes modificar o añadir elementos a un arreglo asignándolos a un índice específico.
+mi_array[3]="elemento4"
+
+# Acceder a todos los elementos del arreglo: usando * o @.
+echo ${mi_array[@]}  # Imprime todos los elementos del arreglo
+echo ${mi_array[*]}  # También puedo escribirlo así
+
+# Obtener el tamaño del arreglo:
+Para obtener la cantidad de elementos en un array, usa el operador especial ${#array[@]}.
+echo ${#mi_array[@]}  # Imprime el número de elementos en el arreglo
+```
+
+Ejemplo de uso de un array:
+
+```sh
+#!/bin/bash
+
+# Definir el arreglo
+frutas=("manzana" "naranja" "plátano")
+
+# Acceder a los elementos
+echo "Primera fruta: ${frutas[0]}"
+echo "Todas las frutas: ${frutas[@]}"
+
+# Añadir una fruta
+frutas[3]="uva"
+
+# Mostrar el tamaño del arreglo
+echo "Número de frutas: ${#frutas[@]}"
 ```
 
 ---------------------
