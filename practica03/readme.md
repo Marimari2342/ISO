@@ -536,25 +536,188 @@ test -f archivo1 -o -f archivo2
 # Ejemplos: 
 
 # 1. Verificar si un archivo existe y es un archivo regular:
-
 if [ -e archivo -a -f archivo ]; then
   echo "El archivo existe y es un archivo regular."
 fi
 
 # 2. Comparar dos números:
-
 if [ 5 -gt 3 ]; then
   echo "5 es mayor que 3."
 fi
 
 # 3. Verificar si una cadena no está vacía:
-
 if [ -n "$cadena" ]; then
   echo "La cadena no está vacía."
 fi
 ```
 
 Estas evaluaciones son comunes en scripts de shell para verificar condiciones antes de ejecutar comandos o tomar decisiones lógicas.
+
+---------------------
+
+</details>
+
+## 🟠 8. Estructuras de Control
+
+Investigue la sintaxis de las siguientes estructuras de control incluidas en shell scripting: if, case, while, for, select
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+1. ***Estructura if:*** evalúa una condición y ejecuta comandos dependiendo de si la condición es verdadera o falsa. Puede incluir else y elif para manejar casos adicionales.
+
+```sh
+if [ condición ]; then
+    # Bloque de código si la condición es verdadera
+elif [ otra_condición ]; then
+    # Bloque de código si la otra_condición es verdadera
+else
+    # Bloque de código si ninguna condición es verdadera
+fi
+```
+
+Ejemplo:
+
+```sh
+#!/bin/bash
+
+num=10
+
+if [ $num -gt 5 ]; then
+    echo "El número es mayor que 5"
+elif [ $num -eq 5 ]; then
+    echo "El número es igual a 5"
+else
+    echo "El número es menor que 5"
+fi
+```
+
+2. ***Estructura case***: compara una variable o expresión con varios patrones y ejecuta el bloque de código correspondiente al primer patrón que coincida. Se utiliza para reemplazar múltiples sentencias if-elif.
+
+```sh
+case variable in
+    patrón1)
+        # Bloque de código si variable coincide con patrón1
+        ;;
+    patrón2)
+        # Bloque de código si variable coincide con patrón2
+        ;;
+    *)
+        # Bloque de código si no coincide con ningún patrón
+        ;;
+esac
+```
+
+Ejemplo:
+
+```sh
+#!/bin/bash
+
+echo "Ingrese una opción (a, b o c):"
+read opcion
+
+case $opcion in
+    a)
+        echo "Opción A seleccionada"
+        ;;
+    b)
+        echo "Opción B seleccionada"
+        ;;
+    c)
+        echo "Opción C seleccionada"
+        ;;
+    *)
+        echo "Opción no válida"
+        ;;
+esac
+```
+
+3. ***Estructura while***: ejecuta un bloque de código mientras la condición evaluada sea verdadera. Se utiliza para bucles con una condición de repetición.
+
+```sh
+while [ condición ]; do
+    # Bloque de código a ejecutar mientras la condición sea verdadera
+done
+```
+
+Ejemplo:
+
+```sh
+#!/bin/bash
+
+contador=1
+
+while [ $contador -le 5 ]; do
+    echo "Iteración: $contador"
+    contador=$((contador + 1))
+done
+```
+
+4. ***Estructura for***: ejecuta un bloque de código para cada elemento en una lista o un rango de valores. Es muy útil para recorrer listas, arrays o secuencias numéricas.
+
+```sh
+for variable in lista; do
+    # Bloque de código que se ejecuta por cada elemento de la lista
+done
+```
+
+Ejemplo (recorriendo una lista de valores):
+
+```sh
+#!/bin/bash
+
+for fruta in manzana naranja plátano; do
+    echo "Fruta: $fruta"
+done
+```
+
+Ejemplo (recorriendo un rango de números):
+
+```sh
+#!/bin/bash
+
+for i in {1..5}; do
+    echo "Número: $i"
+done
+```
+
+5. ***Estructura select***: se utiliza para crear menús interactivos. Muestra una lista de opciones y permite al usuario seleccionar una de ellas.
+
+```sh
+select variable in lista; do
+    # Bloque de código que se ejecuta por cada opción seleccionada
+done
+```
+
+Ejemplo:
+
+```sh
+#!/bin/bash
+
+PS3="Seleccione una fruta: "  # Prompt del menú
+select fruta in manzana naranja plátano; do
+    case $fruta in
+        manzana)
+            echo "Has seleccionado manzana."
+            break
+            ;;
+        naranja)
+            echo "Has seleccionado naranja."
+            break
+            ;;
+        plátano)
+            echo "Has seleccionado plátano."
+            break
+            ;;
+        *)
+            echo "Opción no válida."
+            ;;
+    esac
+done
+```
+
+El prompt PS3 define el texto que se muestra para la entrada del usuario. select permite repetir el menú hasta que se use el comando break.
+
+Estas estructuras de control son fundamentales en Shell Scripting y permiten controlar el flujo de ejecución de los scripts según condiciones, iteraciones y opciones de menú.
 
 ---------------------
 
