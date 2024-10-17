@@ -1070,3 +1070,104 @@ Función B, parámetro recibido: Mensaje desde función A
 ---------------------
 
 </details>
+
+## 🟠 12. Evaluación de expresiones:
+
+(a) Realizar un script que le solicite al usuario 2 números, los lea de la entrada Standard e imprima la multiplicación, suma, resta y cual es el mayor de los números leídos.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+```sh
+#!/bin/bash
+
+# Voy a realizar un script que solicite al usuario dos numeros, e imprima multiplicación,
+# suma, resta y el mayor de los números leidos
+
+echo "ingrese dos numeros"
+read num1 num2
+
+# multiplicacion
+mult=$(expr $num1 \* $num2)
+echo "multiplicacion => $mult"
+
+# suma
+suma=$(expr $num1 + $num2)
+echo "suma => $suma"
+
+# resta
+resta=$(expr $num1 - $num2)
+echo "resta => $resta"
+
+# mayor de ambos
+if [$num1 -gt $num2];then
+  echo "Mayor numero => $num1"
+else
+  echo "Mayor numero => $num2"
+fi
+```
+---------------------
+
+</details>
+
+(b) Modificar el script creado en el inciso anterior para que los números sean recibidos como parámetros. El script debe controlar que los dos parámetros sean enviados.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+```sh
+#!/bin/bash
+
+# Verificar que se hayan pasado dos parámetros
+if [ $# -ne 2 ]; then # si el total de parámetros pasados ($#) no es igual (-ne) a 2
+    echo "Error: Debes ingresar exactamente 2 números como parámetros."
+    echo "Uso: $0 num1 num2" # esto es para explicar como usar el script (info más abajo)
+    exit 1 # error general
+fi
+
+# Leer los números desde los parámetros
+num1=$1
+num2=$2
+
+# multiplicacion
+mult=$(expr $num1 \* $num2)
+echo "multiplicacion => $mult"
+
+# suma
+suma=$(expr $num1 + $num2)
+echo "suma => $suma"
+
+# resta
+resta=$(expr $num1 - $num2)
+echo "resta => $resta"
+
+# mayor de ambos
+if [$num1 -gt $num2];then
+  echo "Mayor numero => $num1"
+else
+  echo "Mayor numero => $num2"
+fi
+```
+
+La linea:
+
+```sh
+echo "Uso: $0 num1 num2"
+```
+
+le explica al usuario como usar el script. El <code>$0</code> nos indica el nombre del script. Entonces si por ejemplo, guardo el script como <code>punto12.sh</code> y lo ejecuto mal (por ejemplo, pasandole un sólo parámetro) el script me va a mostrar el siguiente mensaje:
+
+```sh
+Error: Debes ingresar exactamente 2 números como parámetros.
+Uso: ./punto12.sh num1 num2
+``
+
+---------------------
+
+</details>
+
+(c) Realizar una calculadora que ejecute las 4 operaciones básicas: +, - ,*, %. Esta calculadora debe funcionar recibiendo la operación y los números como parámetros
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+---------------------
+
+</details>
