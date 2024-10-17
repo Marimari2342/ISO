@@ -1221,3 +1221,97 @@ esac
 ---------------------
 
 </details>
+
+## 🟠 13. Uso de las estructuras de control:
+
+(a) Realizar un script que visualice por pantalla los números del 1 al 100 así como sus cuadrados.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+```sh
+#!/bin/bash
+
+# El script a continuación va a mostrar en pantalla los números del 1 al 100 y sus cuadrados
+for i in {1..100}; do
+  cuadrado=$(($i \* $i))
+  echo "Numero: $i, --> Cuadrado del numero: $cuadrado"
+done
+```
+
+---------------------
+
+</details>
+
+(b) Crear un script que muestre 3 opciones al usuario: Listar, DondeEstoy y QuienEsta. Según la opción elegida se le debe mostrar: 
+
+* Listar: lista el contenido del directoria actual.
+
+* DondeEstoy: muestra el directorio donde me encuentro ubicado.
+
+* QuienEsta: muestra los usuarios conectados al sistema.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+```sh
+#!/bin/bash
+
+# El script debe mostrar 3 opciones de usuario
+echo "ingrese numero de opcion de usuario:"
+echo "1 --> Listar: lista el contenido del directoria actual."
+echo "2 --> DondeEstoy: muestra el directorio donde me encuentro ubicado."
+echo "3 --> QuienEsta: muestra los usuarios conectados al sistema."
+read opcion
+
+case $opcion in 
+  # Listar
+  1)
+    ls
+    ;; 
+  # DondeEstoy
+  2)
+    pwd
+    ;; 
+  # QuienEsta
+  3)
+    whoami
+    ;; 
+  *)
+    echo "opcion incorrecta."
+    exit 1
+    ;;
+esac
+```
+
+---------------------
+
+</details>
+
+(c) Crear un script que reciba como parámetro el nombre de un archivo e informe si el mismo existe o no, y en caso afirmativo indique si es un directorio o un archivo. En caso de que no exista el archivo/directorio cree un directorio con el nombre recibido como parámetro.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+```sh
+#!/bin/bash
+
+# me aseguro que se recibió un sólo parametro
+if [ $# -ne 1 ]; then # si el total de parámetros pasados ($#) no es igual (-ne) a 1
+    echo "Error: Debes ingresar exactamente un sólo nombre de archivo."
+    echo "Uso: $0 nombre_de_archivo_o_directorio" # esto es para explicar como usar el script
+    exit 1 # error general
+fi
+
+nombre=$1
+
+if [ -f "$nombre" ];then
+  echo "Se encontró un archivo con ese nombre"
+elif [ -d "$nombre" ]; then
+  echo "Se encontró un directorio con ese nombre"
+else
+  mkdir $nombre
+  echo "Se generó un nuevo directorio llamado $nombre"
+fi
+```
+
+---------------------
+
+</details>
