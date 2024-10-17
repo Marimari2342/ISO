@@ -931,3 +931,142 @@ echo "Número de frutas: ${#frutas[@]}"
 ---------------------
 
 </details>
+
+## 🟠 11. Parámetros
+
+¿Pueden definirse funciones dentro de un script? ¿Cómo? ¿Cómo se maneja el pasaje de parámetros de una función a la otra?
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+En Shell Script se pueden definir funciones dentro de un script. Las funciones permiten encapsular bloques de código reutilizables y organizan mejor el flujo del script. Además, se pueden pasar parámetros a las funciones de manera similar a cómo se pasan argumentos a un script.
+
+1. Definir una Función
+
+```sh
+nombre_funcion() {
+    # Bloque de código de la función
+}
+
+# Como una variante válida:
+function nombre_funcion {
+    # Bloque de código de la función
+}
+```
+
+---------------------
+
+2. Llamar a una Función: se puede llamar simplemente usando su nombre:
+
+```sh
+nombre_funcion
+```
+
+---------------------
+
+3. Pasar Parámetros a una Función: los parámetros se pasan a las funciones de la misma manera que los argumentos de un script. Los valores que se pasan a la función se acceden mediante variables posicionales dentro de la función ($1, $2, ..., $n).
+
+```sh
+$1: Primer parámetro
+$2: Segundo parámetro
+$@ o $*: Todos los parámetros
+```
+
+```sh
+#!/bin/bash
+
+# Ejemplo de función con parámetros:
+mi_funcion() {
+    echo "El primer parámetro es: $1"
+    echo "El segundo parámetro es: $2"
+    echo "Todos los parámetros son: $@"
+}
+
+# Llamada a la función con dos parámetros
+mi_funcion "Hola" "Mundo"
+
+
+# Salida:
+# -- El primer parámetro es: Hola
+# -- El segundo parámetro es: Mundo
+# -- Todos los parámetros son: Hola Mundo
+```
+
+---------------------
+
+4. Retornar Valores desde una Función: en bash, las funciones no pueden retornar directamente valores como en otros lenguajes de programación. Sin embargo, se puede usar la sentencia return para devolver un código de estado (generalmente entre 0 y 255). Si necesitas devolver un valor complejo, puedes usar variables globales, modificar variables por referencia o imprimir el resultado y capturarlo con command substitution (sustitución de comandos).
+
+```sh
+#!/bin/bash
+
+#Ejemplo con return:
+mi_funcion() {
+    if [ $1 -gt 10 ]; then
+        return 0  # Éxito
+    else
+        return 1  # Error
+    fi
+}
+
+mi_funcion 15
+echo "Código de retorno: $?"  # Captura el código de retorno
+```
+
+```sh
+#!/bin/bash
+
+# Ejemplo con command substitution para devolver un valor:
+sumar() {
+    local suma=$(( $1 + $2 ))
+    echo $suma  # Imprimir el resultado
+}
+
+resultado=$(sumar 5 10)  # Captura el resultado con command substitution
+echo "La suma es: $resultado"
+```
+
+---------------------
+
+5. Variables Globales y Locales en Funciones: en Shell Script, todas las variables son globales por defecto, lo que significa que cualquier variable definida en una función estará disponible fuera de ella, a menos que se defina como local usando el comando local.
+
+```sh
+#!/bin/bash
+
+# Ejemplo de uso de local:
+mi_funcion() {
+    local variable_local="Esto es local"
+    variable_global="Esto es global"
+}
+
+mi_funcion
+echo $variable_global  # Esto imprime "Esto es global"
+echo $variable_local   # Esto no imprimirá nada porque es local a la función
+```
+
+---------------------
+
+6. Pasaje de Parámetros de una Función a Otra: una función puede llamar a otra función y pasarle parámetros de la misma forma que un script pasaría argumentos a una función. Los parámetros se transfieren de la misma manera mediante las variables posicionales.
+
+```sh
+#!/bin/bash
+
+# Ejemplo de funciones que se llaman entre sí:
+funcion_a() {
+    echo "Función A, parámetro recibido: $1"
+    funcion_b "Mensaje desde función A"
+}
+
+funcion_b() {
+    echo "Función B, parámetro recibido: $1"
+}
+
+# Llamada a la función A
+funcion_a "Hola"
+
+# Salida:
+Función A, parámetro recibido: Hola
+Función B, parámetro recibido: Mensaje desde función A
+```
+
+---------------------
+
+</details>
