@@ -722,3 +722,112 @@ Estas estructuras de control son fundamentales en Shell Scripting y permiten con
 ---------------------
 
 </details>
+
+## 🟠 8. Sentencias break y continue
+
+¿Qué acciones realizan las sentencias break y continue dentro de un bucle? ¿Qué parámetros} reciben?
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+Las sentencias break y continue se utilizan en los bucles para alterar el flujo de ejecución. Aunque ambas modifican el comportamiento del bucle, lo hacen de manera diferente.
+
+* break: Finaliza el bucle actual. Puede recibir un número opcional para salir de varios niveles de bucles anidados.
+
+* continue: Salta la iteración actual del bucle y continúa con la siguiente. Puede recibir un número opcional para continuar desde un bucle específico en el caso de bucles anidados.
+
+---------------------
+
+1. ***Sentencia break***
+
+La sentencia break se utiliza para salir completamente de un bucle, independientemente de si la condición del bucle se ha cumplido o no. Cuando break se ejecuta, el bucle se termina inmediatamente y el control del programa pasa a la siguiente instrucción fuera del bucle.
+
+```sh
+#!/bin/bash
+
+# Ejemplo: break
+for i in {1..5}; do
+    if [ $i -eq 3 ]; then
+        break  # Sale del bucle cuando i es igual a 3
+    fi
+    echo "Iteración: $i"
+done
+echo "Bucle terminado"
+
+# Salida:
+Iteración: 1
+Iteración: 2
+Bucle terminado
+```
+
+Parámetros: en bash, break acepta un parámetro opcional: un número entero positivo que indica de cuántos bucles anidados se debe salir.
+
+break n: Saldrá de los n niveles de bucles anidados.
+
+```sh
+#!/bin/bash
+
+# Ejemplo con bucles anidados:
+for i in {1..3}; do
+    for j in {1..3}; do
+        if [ $j -eq 2 ]; then
+            break 2  # Sale de ambos bucles (interno y externo)
+        fi
+        echo "i: $i, j: $j"
+    done
+done
+echo "Bucle terminado"
+
+# Salida:
+i: 1, j: 1
+Bucle terminado
+```
+---------------------
+
+2. ***Sentencia continue***
+
+La sentencia continue se utiliza para saltar el resto del código en la iteración actual del bucle y pasar directamente a la siguiente iteración. No termina el bucle, sino que simplemente salta al siguiente ciclo.
+
+```sh
+#!/bin/bash
+
+# ejemplo: continue
+for i in {1..5}; do
+    if [ $i -eq 3 ]; then
+        continue  # Salta la iteración cuando i es igual a 3
+    fi
+    echo "Iteración: $i"
+done
+
+#Salida:
+Iteración: 1
+Iteración: 2
+Iteración: 4
+Iteración: 5
+```
+
+Parámetros: en bash, continue también acepta un parámetro opcional: un número entero positivo que indica de cuántos niveles de bucles anidados se debe continuar.
+
+continue n: Continúa desde el n-ésimo bucle exterior.
+
+```sh
+#!/bin/bash
+
+# Ejemplo con bucles anidados:
+for i in {1..3}; do
+    for j in {1..3}; do
+        if [ $j -eq 2 ]; then
+            continue 2  # Pasa a la siguiente iteración del bucle externo
+        fi
+        echo "i: $i, j: $j"
+    done
+done
+
+# Salida:
+i: 1, j: 1
+i: 2, j: 1
+i: 3, j: 1
+```
+
+---------------------
+
+</details>
