@@ -1732,3 +1732,35 @@ done
 ---------------------
 
 </details>
+
+## 🟠 22. 
+
+Dada la siguiente declaración al comienzo de un script: num=(10 3 5 7 9 3 5 4) (la cantidad de elementos del arreglo puede variar). Implemente la función productoria dentro de este script, cuya tarea sea multiplicar todos los números del arreglo.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+```sh
+#!/bin/bash
+
+# Productoria
+
+# Declaro mi arreglo
+num=(10 3 5 7 9 3 5 4)
+
+# Funcion productoria
+
+productoria(){
+  local prod=1
+  for i in "${num[*]}";do
+    prod=$((prod \* i))
+  done
+  echo "El resultado es: $prod"
+}
+
+# Llamo a la funcion
+productoria
+```
+
+---------------------
+
+</details>
