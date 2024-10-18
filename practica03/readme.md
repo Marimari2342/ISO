@@ -1629,7 +1629,104 @@ done
 # usuario aparezca en la terminal cada vez que se verifica.  
 
 # basicamene sería, si dentro de los usuarios conectados se encuentra $usuario entonces entro al if
+```
 
+---------------------
+
+</details>
+
+## 🟠 20. 
+
+Realice un script que simule el comportamiento de una estructura de PILA e implemente las siguientes funciones aplicables sobre una estructura global definida en el script: 
+
+* push: Recibe un parámetro y lo agrega en la pila 
+
+* pop: Saca un elemento de la pila 
+
+* length: Devuelve la longitud de la pila 
+
+* print: Imprime todos elementos de la pila
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+```sh
+#!/bin/bash
+#Script que simula el comportamiento de una pila
+
+# defino la estructura global pila como un array
+pila=()
+
+# funcion --> push: Recibe un parámetro y lo agrega en la pila 
+push(){
+  local elemento=$1 # guardo el parametro en la variable local $elemento
+  pila+=($elemento) # agrego $elemento a la pila
+  echo "Elemento $elemento agregado a la pila"
+}
+
+# funcion --> pop: Saca un elemento de la pila 
+pop(){
+  if [ ${#pila[*]} -eq 0 ];then # si todos los elementos de mi pila = 0
+    echo "Error: pila vacía."
+  else
+    local elemento=${pila[-1]} # accedo al último elemento y lo guardo en $elemento
+    unset pila[-1] # borro el último elemento de la pila
+    echo "Elemento $elemento eliminado de la pila"
+  fi
+}
+
+# length: Devuelve la longitud de la pila 
+lenght(){
+  echo "La longitud de la pila es ${#pila[*]}" # longitud de la pila dada por ${#pila[*]} 
+}
+
+# print: Imprime todos elementos de la pila
+print(){
+  if [ ${#pila[*]} -eq 0 ];then
+    echo "Pila vacía."
+  else
+    echo "Elementos de la pila:"
+     # esto lo hago así para imprimir en orden, puesto que es una pila, imprimo del ultimo 
+     # elemento del arreglo al primero (ponele si mi array es {1 2 3 4 5} imprime 5 4 3 2 1)
+    for (( i=${#pila[*]}-1; i>=0; i-- )); do
+      echo "${pila[$i]}"
+    done
+  fi
+}
+
+# Menú para interactuar con la pila
+while true; do
+    echo "Elige una opción de la Pila:"
+    echo "1. push (agregar a la pila)"
+    echo "2. pop (eliminar de la pila)"
+    echo "3. length (longitud de la pila)"
+    echo "4. print (imprimir pila)"
+    echo "5. salir"
+    read opcion
+
+    case $opcion in
+        1)
+            echo "Ingresa el elemento a agregar: "
+            read elemento
+            push "$elemento"
+            ;;
+        2)
+            pop
+            ;;
+        3)
+            length
+            ;;
+        4)
+            print
+            ;;
+        5)
+            echo "Saliendo..."
+            break
+            ;;
+        *)
+            echo "Opción inválida. Inténtalo de nuevo."
+            ;;
+    esac
+done
 ```
 
 ---------------------
