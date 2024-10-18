@@ -1622,7 +1622,12 @@ done
 
 # who muestra los usuarios loguados en el sistema
 # grep -w es para buscar el nombre exacto de usuario
-# porque uso /dev/null --> grep normalmente imprimirá en pantalla cualquier línea que coincida con el usuario. Pero en este caso, no necesitamos mostrar esa información, solo queremos saber si el usuario está o no logueado. Al redirigir la salida a /dev/null, evitas que el nombre del usuario aparezca en la terminal cada vez que se verifica.  
+
+# porque uso /dev/null --> grep normalmente imprimirá en pantalla cualquier línea que coincida 
+# con el usuario. Pero en este caso, no necesitamos mostrar esa información, solo queremos saber 
+# si el usuario está o no logueado. Al redirigir la salida a /dev/null, evitas que el nombre del 
+# usuario aparezca en la terminal cada vez que se verifica.  
+
 # basicamene sería, si dentro de los usuarios conectados se encuentra $usuario entonces entro al if
 
 ```
