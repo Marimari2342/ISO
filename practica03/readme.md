@@ -1764,3 +1764,36 @@ productoria
 ---------------------
 
 </details>
+
+## 🟠 23. 
+
+Implemente un script que recorra un arreglo compuesto por números e imprima en pantalla sólo los números pares y que cuente sólo los números impares y los informe en pantalla al finalizar el recorrido.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+```sh
+#!/bin/bash
+
+# Quiero recorrer un arreglo de números, imprimir los números pares y contabilizar los impares
+
+# Declaro mi arreglo
+arr=(1 3 4 6 8 33 65 78 4 3 6)
+
+recorrer(){
+  cont=0
+  for i in "${arr[*]}";do
+    if (( $i % 2 == 0 ));then
+      echo $i
+    else 
+      (( cont++ ))
+  done
+  echo "Cantidad de numeros impares: $cont"
+}
+
+# Llamo a la funcion
+recorrer
+```
+
+---------------------
+
+</details>
