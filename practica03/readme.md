@@ -1500,3 +1500,92 @@ cat "$reporte"
 ---------------------
 
 </details>
+
+
+## 🟠 17. 
+
+Escribir un script que al ejecutarse imprima en pantalla los nombre de los archivos que se encuentran en el directorio actual, intercambiando minúsculas por mayúsculas, además de eliminar la letra a (mayúscula o minúscula). Ejemplo, directorio actual:
+
+```sh
+# IsO
+# pepE
+# Maria
+
+# Si ejecuto: ./ejercicio17
+
+# Obtendré como resultado:
+# iSo
+# PEPe
+# mRI
+```
+
+Ayuda: Investigar el comando tr
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+```sh
+#!/bin/bash
+
+# Script que imprime en pantalla los nombres de los archivos que se encuentran en el directorio
+# actual, intercalando mayúsculas y minúsculas, y eliminando la letra a (a,A)
+
+for file in *; do
+  if [ -f "$file" ]
+    nuevo_nombre=$(echo "$file" | tr 'A-Za-z' 'a-zA-Z' | tr -d 'aA')
+    echo "$nuevo_nombre" # Solo lo cambio al imprimir, no me dice que toque el nombre del archivo
+  fi
+done
+```
+
+---------------------
+
+El comando <code>tr</code> es una herramienta que permite traducir o eliminar caracteres en un flujo de texto. Se utiliza para realizar transformaciones básicas de texto, como cambiar mayúsculas a minúsculas, eliminar caracteres repetidos o reemplazar ciertos caracteres por otros.
+
+```sh
+# Sintaxis básica
+tr [opciones] SET1 [SET2]
+
+# SET1: Especifica los caracteres que se quieren transformar.
+# SET2: Especifica los caracteres por los que se quieren reemplazar los de SET1.
+```
+
+Las opciones pueden modificar el comportamiento de tr. Ejemplos de uso del comando tr
+
+1. **Cambiar mayúsculas a minúsculas**
+
+```sh
+echo "HELLO WORLD" | tr 'A-Z' 'a-z'
+# Resultado: hello world
+```
+
+2. **Cambiar minúsculas a mayúsculas**
+
+```sh
+echo "hello world" | tr 'a-z' 'A-Z'
+# Resultado: HELLO WORLD
+```
+
+3. **Eliminar ciertos caracteres**: puedes eliminar caracteres de un texto usando la opción -d.
+
+```sh
+echo "hello 123 world" | tr -d '0-9'
+# Resultado: hello world
+```
+
+4. **Reemplazar un carácter por otro**
+
+```sh
+echo "hello world" | tr ' ' '-'
+# Resultado: hello-world
+```
+
+5. **Comprimir caracteres repetidos**: la opción -s (squeeze) permite comprimir caracteres repetidos consecutivos en uno solo.
+
+```sh
+echo "hellooo    woorlldd" | tr -s 'o d'
+# Resultado: helo world
+```
+
+---------------------
+
+</details>
