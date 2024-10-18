@@ -1456,3 +1456,47 @@ nombre|apellido
 ---------------------
 
 </details>
+
+## 🟠 16. 
+
+Realizar un script que reciba como parámetro una extensión y haga un reporte con 2 columnas, el nombre de usuario y la cantidad de archivos que posee con esa extensión. Se debe guardar el resultado en un archivo llamado reporte.txt
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+```sh
+#!/bin/bash
+
+# verifico que el parámetro me lo pasaron bien 
+if [ $# -ne 1 ]; then
+  echo "Error, sólo se debe pasar 1 parámetro"
+  echo "Uso: $0 extension"
+  exit 1
+fi
+
+extension=$1 # extension pasada como parámetro
+reporte="reporte.txt" # nombre del archivo en donde guardo el resultado
+
+# Obtener la lista de usuarios en el sistema
+# (Uso cut y obtengo la primera columna del archivo /etc/passwd, que contiene los nombres de los usuarios.)
+usuarios=$(cut -d: -f1 /etc/passwd) 
+
+
+# Recorrer cada usuario
+for usuario in $usuarios; do
+    # Contar los archivos con la extensión dada en el directorio home del usuario
+    cantidad=$(find "/home/$usuario" -maxdepth 1 -type f -name "*.$extension" 2>/dev/null | wc -l)
+
+    # Agregar al reporte si el usuario tiene archivos con esa extensión
+    if [ "$cantidad" -gt 0 ]; then
+        echo "$usuario $cantidad" >> "$reporte"
+    fi
+done
+
+# Mostrar el reporte generado
+echo "Reporte generado en $reporte:"
+cat "$reporte"
+```
+
+---------------------
+
+</details>
