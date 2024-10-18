@@ -1383,3 +1383,76 @@ exit 0
 ---------------------
 
 </details>
+
+## 🟠 15. Comando cut. 
+
+El comando cut nos permite procesar la líneas de la entrada que reciba (archivo, entrada estándar, resultado de otro comando, etc) y cortar columnas o campos, siendo posible indicar cual es el delimitador de las mismas. Investigue los parámetros que puede recibir este comando y cite ejemplos de uso.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+El comando cut se utiliza para extraer secciones de cada línea de un archivo o entrada estándar. Generalmente, se usa para cortar columnas o campos en función de un delimitador o para seleccionar partes específicas de texto.
+
+Parámetros comunes del comando cut:
+
+* -b: Selecciona un rango de bytes (bytes por posición en la línea, no caracteres en términos de codificación).
+
+```sh
+echo "123456789" | cut -b 1-3
+
+# Salida:
+123
+```
+* -c: Selecciona caracteres específicos o rangos de caracteres en cada línea.
+
+```sh
+echo "123456789" | cut -c 4-6
+
+# Salida:
+456
+```
+* -d: Define el delimitador cuando se trabajan con campos (usado junto con -f).
+
+```sh
+echo "uno:dos:tres" | cut -d ':' -f 2
+
+# Salida:
+dos
+```
+
+* -f: Selecciona los campos basados en un delimitador (se usa con -d para especificar el delimitador). Cada campo es una parte de la línea separada por el delimitador.
+
+```sh
+echo "nombre,apellido,edad" | cut -d ',' -f 1,3
+
+# Salida:
+nombre,edad
+```
+* --complement: Selecciona todos los campos excepto los especificados. Funciona con las opciones -b, -c y -f.
+
+```sh
+echo "nombre,apellido,edad" | cut -d ',' -f 2 --complement
+
+# Salida:
+nombre,edad
+```
+
+* -s: Suprime las líneas que no contienen el delimitador especificado. Solo muestra las líneas que contienen el delimitador.
+
+```sh
+echo "nombre apellido" | cut -d ',' -f 1 -s
+
+# Salida: no imprime nada, ya que no hay un delimitador.
+```
+
+* --output-delimiter: Cambia el delimitador de salida al especificado.
+
+```sh
+echo "nombre,apellido,edad" | cut -d ',' -f 1,2 --output-delimiter="|"
+
+# Salida:
+nombre|apellido
+```
+
+---------------------
+
+</details>
