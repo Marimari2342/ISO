@@ -1589,3 +1589,44 @@ echo "hellooo    woorlldd" | tr -s 'o d'
 ---------------------
 
 </details>
+
+## 🟠 18. 
+
+Crear un script que verifique cada 10 segundos si un usuario se ha loqueado en el sistema (el nombre del usuario será pasado por parámetro). Cuando el usuario finalmente se loguee, el programa deberá mostrar el mensaje ”Usuario XXX logueado en el sistema” y salir.
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+```sh
+#!/bin/bash
+
+# Verifica que se haya pasado exactamente un parámetro (el nombre del usuario)
+if [ $# -ne 1 ]; then
+  echo "Error: Debes ingresar el nombre del usuario."
+  echo "Uso: $0 nombre_usuario"
+  exit 1
+fi
+
+# Asigno el nombre de usuario a la variable $usuario
+usuario=$1
+
+# Bucle que verifica cada 10 segundos si el usuario está logueado
+while true; do # bucle infinito hasta que el usuario se loguee
+  # Comprueba si el usuario está logueado
+  if who | grep -w "$usuario" > /dev/null; then   # mirar mas abajo
+    echo "Usuario $usuario logueado en el sistema."
+    exit 0
+  fi
+  # Espera 10 segundos antes de volver a comprobar
+  sleep 10
+done
+
+# who muestra los usuarios loguados en el sistema
+# grep -w es para buscar el nombre exacto de usuario
+# porque uso /dev/null --> grep normalmente imprimirá en pantalla cualquier línea que coincida con el usuario. Pero en este caso, no necesitamos mostrar esa información, solo queremos saber si el usuario está o no logueado. Al redirigir la salida a /dev/null, evitas que el nombre del usuario aparezca en la terminal cada vez que se verifica.  
+# basicamene sería, si dentro de los usuarios conectados se encuentra $usuario entonces entro al if
+
+```
+
+---------------------
+
+</details>
