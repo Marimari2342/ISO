@@ -1798,7 +1798,7 @@ recorrer
 
 </details>
 
-## 🟠 23. 
+## 🟠 24. 
 
 Dada la definición de 2 vectores del mismo tamaño y cuyas longitudes no se conocen. Complete el script de manera tal de implementar la suma elemento a elemento entre ambos vectores y que la misma sea impresa en pantalla de la siguiente manera:
 
@@ -1832,6 +1832,83 @@ informar(){
 
 # llamo a la funcion
 informar
+```
+
+---------------------
+
+</details>
+
+## 🟠 25. 
+
+Realice un script que agregue en un arreglo todos los nombres de los usuarios del sistema pertenecientes al grupo “users”. Adicionalmente el script puede recibir como parametro: 
+
+“-b n”: Retorna el elemento de la posición n del arreglo si el mismo existe. Caso contrario, un mensaje de error.
+
+“-l”: Devuelve la longitud del arreglo
+
+“-i”: Imprime todos los elementos del arreglo en pantalla
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+```sh
+#!/bin/bash
+
+# Verifico cantidad de parámetros pasados: 0 , 1 o 2 parámetros es válido. Más parámetros Error
+if [ $# -gt 2 ]; then
+  echo "Cantidad de parámetros pasados mayor a la permitida"
+  echo "Posibles usos"
+  echo " --> $0 (agrego todos los nombres de usuarios del grupo 'users')"
+  echo " --> $0 -b n (retorna elemento en posición n del arreglo)"
+  echo " --> $0 -l (devuelve longitud del arreglo)"
+  echo " --> $0 -i (imprime elementos del arreglo)"
+  exit 1
+fi
+
+# Función para agregar usuarios del grupo 'users' al arreglo
+agregar(){
+  arreglo=( $(cat /etc/group | grep users | cut -d: -f4| tr ',' ' '))
+}
+
+# Si se pasa un solo parámetro
+if [ $# -eq 1 ]; then
+  opcion=$1
+  case $opcion in
+    "-l")
+      agregar
+      echo "Longitud del arreglo: ${#arreglo[*]}"
+      ;;
+    "-i")
+      agregar
+      for i in "${arreglo[*]}"; do
+        echo "$i"
+      done
+      ;;
+    *)
+      echo "Error, opción incorrecta"
+      exit 1
+      ;;
+  esac
+
+# Si se pasan dos parámetros
+elif [ $# -eq 2 ]; then
+  opcion=$1
+  posicion=$2
+  if [ "$opcion" = "-b" ]; then
+    agregar
+    if [ "$posicion" -ge 0 ] && [ "$posicion" -lt ${#arreglo[*]} ]; then
+      echo "Elemento en la posición $posicion: ${arreglo[$posicion]}"
+    else
+      echo "Error, posición $posicion inválida"
+      exit 1
+    fi
+  else
+    echo "Error, opción incorrecta"
+    exit 1
+  fi
+else
+  # Si no se pasan parámetros, simplemente agrega los usuarios
+  agregar
+fi
 ```
 
 ---------------------
