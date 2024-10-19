@@ -1797,3 +1797,43 @@ recorrer
 ---------------------
 
 </details>
+
+## 🟠 23. 
+
+Dada la definición de 2 vectores del mismo tamaño y cuyas longitudes no se conocen. Complete el script de manera tal de implementar la suma elemento a elemento entre ambos vectores y que la misma sea impresa en pantalla de la siguiente manera:
+
+~~~
+La suma de los elementos de la posición 0 de los vectores es 6
+La suma de los elementos de la posición 1 de los vectores es 178
+...
+La suma de los elementos de la posición 4 de los vectores es 10
+~~~
+
+<details><summary> <code> Respuesta 🖱 </code></summary><br>
+
+```sh
+#!/bin/bash
+
+# Voy a sumar elemento a elemento de dos vectores e informar en pantalla (v1[1]+v2[1]... y así)
+
+# Declaracion de vectores
+v1=(1 2 3 5 6 8)
+v2=(5 6 8 1 5 4)
+
+# Funcion que hace lo que quiero
+informar(){
+  i=0
+  while [ $i -lt ${#v1[*]} ];do
+    num=$((v1[i] + v2[i]))
+    echo "La suma de los elementos de la posición $i de los vectores es $num"
+    ((i++))
+  done
+}
+
+# llamo a la funcion
+informar
+```
+
+---------------------
+
+</details>
