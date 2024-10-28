@@ -14,10 +14,10 @@ if [ $# -ne 0 ];then
 fi
 
 # Archivo de salida --> generar un archivo llamado listado.txt en el /var
-OUTPUT_FILE="/var/listado.txt"
+file="/var/listado.txt"
 
 # (opcional) limpia el archivo de salida si ya existe
-> "$OUTPUT_FILE"
+> "$file"
 
 # Recorrer el archivo /etc/passwd --> para ver los usuarios y generar el listado con lo que me piden
 # cat /etc/passwd --> crea un proceso para pasarme el archivo al bucle 
@@ -27,8 +27,8 @@ cat /etc/passwd | while read -r line; do # Recorre cada línea de /etc/passwd
     bash=$(echo "$line" | cut -d: -f7)
     username=$(echo "$line" | cut -d: -f1)
     # Verifico si existe el directorio mailDIr el shell es /bin/bash 
-    if [[ "$bash"=="/bin/bash" && -d "$dir/mailDir"]]; then
-        echo "$username" >> "OUTPUT_FILE"
+    if [[ "$bash"=="/bin/bash" && -d "$dir/mailDir" ]]; then
+        echo "$username" >> "$file"
     fi 
 done
 
