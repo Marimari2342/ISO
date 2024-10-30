@@ -19,7 +19,7 @@ fi
 file="/var/log/access-$1.log"
 
 # Si no es usuario del sistema, error 1
-if [ $(cat /etc/passwd | cut -d: -f1 | grep -w $1 | wc -l) -eq 0 ]
+if [ $(cat /etc/passwd | cut -d: -f1 | grep -w $1 | wc -l) -eq 0 ];then
     echo "$1 no es un usuario del sistema."
     exit 1
 fi
