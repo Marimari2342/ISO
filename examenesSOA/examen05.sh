@@ -101,7 +101,32 @@ selecc () {
 # el arreglo existe un elemento que sea igual al parámetro. Si existe deberá eliminarlo, sino 
 # imprimirá “elemento no encontrado”.
 delete () {
-
+    verificar "$#"
+    if [ $? -eq 0 ];then
+        if [ $1 -eq "*" ];then
+            unset arreglo[*]
+        else 
+            encontre=false
+            cont=0
+            # veo si existe el elemento
+            while ("$encontre"=false && "$cont" -ne "${#arreglo[*]}");do
+                # si lo encuentro
+                if [ "$arreglo[$cont]" -eq "$1" ];then
+                    encontre=true
+                    unset arreglo[$cont]
+                    return
+                fi
+                cont++
+            done
+            # si no encontre el elemento
+            if [ "$encontre"=false ];then
+                echo "elemento no encontrado"
+                return
+            fi
+    else 
+        echo "Error: no se pasó un sólo parámetro"
+        exit 1
+    fi
 }
 
 # PROGRAMA PRINCIPAL
