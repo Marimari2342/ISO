@@ -26,6 +26,7 @@ fi
 # Sino, verificar cada 30 segundos si esta logueado
 else 
     cont=0
+    # Cuando esta logueado registrar lo pedido (30 veces)
     while ("$cont"!=30); do
         if [ $(who | cut -d" " -f1 | grep -w $1 | wc -l) -ne 0];then
             echo "Usuario $1 conectado, fecha $date" >> "$file"
@@ -35,4 +36,3 @@ else
     done
     exit 0
 fi
-# Cuando esta logueado registrar lo pedido (30 veces)
