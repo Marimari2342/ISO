@@ -8,7 +8,7 @@
 # en su nombre.
 # * listar(): imprime los nombres de todos los archivos del directorio /var/log que tengan el texto
 # “access” en su nombre.
-# *  eliminar <parametro1><parametro2>(): recibe como primer parámetro el índice de un arreglo y 
+# * eliminar <parametro1><parametro2>(): recibe como primer parámetro el índice de un arreglo y 
 # como segundo parámetro la cadena “lógico” o “físico”. Si el segundo parámetro es “lógico” sólo
 # borra la entrada en el arreglo, si es “físico”, borra la entrada en el arreglo y en el FileSystem.
 
