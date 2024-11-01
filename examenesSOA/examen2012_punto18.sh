@@ -50,8 +50,10 @@ existe () {
             fi
         done
         echo "No se encontró el archivo"
+        return 1
     else 
         echo "Error, debe pasarse un sólo parámetro"
+        return 1
     fi
 }
 
@@ -70,16 +72,19 @@ eliminar () {
                         ;;
                     "fisico")
                         unset arreglo[$cont]
-                        rm /var/etc/"${arreglo[$cont]}"
+                        rm -f "/etc/$i"
                         echo "Borrado físico"
                         ;;
                     "*")
                         echo "Error, parametro 2 incorrecto"
-                        exit 1
+                        return 1
                         ;;
                 esac
             fi
             cont=$((cont+1))
         done
-    fi
+        return 0
+    else
+        echo "Error, se requieren dos parámetros"
+        return 1
 }
