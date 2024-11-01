@@ -13,9 +13,8 @@ if [ $# -ne 1 ];then
     exit 1
 fi
 
-encontre=false
 archivo="/var/log/any-service/error.log"
-while ("$encontre"=false);do
+while true;do
     if [ -f "$archivo" ];then
         cant_lineas=$(cat "$archivo" | grep "FATAL ERROR" | wc -l)
         if [ "$cant_lineas" -gt 0 ];then
@@ -23,7 +22,6 @@ while ("$encontre"=false);do
             echo "Compresion exitosa"
             # informar la cantidad de líneas del archivo que contenían el texto “FATAL ERROR”.
             echo "Cantidad de lineas --> $cant_lineas"
-            encontre=true
             exit 0
         fi
     fi
