@@ -14,7 +14,6 @@ fi
 
 cont=0
 while [ $cont -lt 10 ];do
-
     if [ ps aux | grep -q -E 'httpd|apache2' ];then # -q no imprime la salida por terminal
         cont=$((cont+1))
     fi 
