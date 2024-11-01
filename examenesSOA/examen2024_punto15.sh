@@ -36,3 +36,4 @@ for i in $*;do
     fi
 done
 echo "Cantidad de parámetros que no spm un elemento del FileSystem: $cont"
+exit 0
